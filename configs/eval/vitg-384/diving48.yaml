@@ -1,0 +1,61 @@
+nodes: 8
+tasks_per_node: 8
+cpus_per_task: 12
+mem_per_gpu: 200G
+tag: diving48-vitg16-384-32x4x3
+eval_name: video_classification_frozen
+folder: /your_folder/evals/vitg-384/diving48
+resume_checkpoint: true
+experiment:
+  classifier:
+    num_probe_blocks: 4
+    num_heads: 16
+  data:
+    dataset_type: VideoDataset
+    dataset_train: /your_data_dir/diving48/annotations/Diving48_train_paths.csv
+    dataset_val: /your_data_dir/diving48/annotations/Diving48_test_paths.csv
+    num_classes: 48
+    resolution: 384
+    frames_per_clip: 32
+    frame_step: 2
+    num_segments: 4
+    num_views_per_segment: 3
+  optimization:
+    use_pos_embed: false
+    num_epochs: 100
+    batch_size: 2
+    use_bfloat16: true
+    multihead_kwargs:
+      - weight_decay: 0.8
+        final_weight_decay: 0.8
+        lr: 0.001
+        start_lr: 0.001
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.8
+        final_weight_decay: 0.8
+        lr: 0.0003
+        start_lr: 0.0003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.8
+        final_weight_decay: 0.8
+        lr: 0.0001
+        start_lr: 0.0001
+        final_lr: 0.0
+        warmup: 0.
+model_kwargs:
+  checkpoint: /your_vjepa2_checkpoints/vitg-384.pt
+  module_name: evals.video_classification_frozen.modelcustom.vit_encoder_multiclip_multilevel
+  wrapper_kwargs:
+    max_frames: 128
+    use_pos_embed: false
+    out_layers: [24, 29, 34, 39]
+  pretrain_kwargs:
+    encoder:
+      model_name: vit_giant_xformers
+      checkpoint_key: target_encoder
+      tubelet_size: 2
+      patch_size: 16
+      uniform_power: true
+      use_rope: true

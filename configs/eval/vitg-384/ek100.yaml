@@ -1,0 +1,196 @@
+nodes: 8
+tasks_per_node: 8
+cpus_per_task: 12
+tag: ek100-vitg16-384
+eval_name: action_anticipation_frozen
+folder: /your_folder/evals/vitg-384/ek100
+resume_checkpoint: true
+experiment:
+  classifier:
+    num_probe_blocks: 4
+    num_heads: 16
+  data:
+    anticipation_time_sec:
+    - 1.0
+    - 1.0
+    auto_augment: true
+    file_format: 0
+    dataset: EK100
+    # e.g. /home/username/EPIC-KITCHENS
+    base_path: /your_ek100_root_dir/
+    dataset_train: /your_data/EPIC_100_train.csv
+    dataset_val: /your_data/EPIC_100_validation.csv
+    frames_per_clip: 32
+    frames_per_second: 8
+    motion_shift: false
+    num_workers: 2
+    pin_memory: true
+    random_resize_scale:
+    - 0.08
+    - 1.0
+    reprob: 0.25
+    resolution: 384
+    train_anticipation_point:
+    - 0.0
+    - 0.25
+    train_anticipation_time_sec:
+    - 0.25
+    - 1.75
+  optimization:
+    num_epochs: 20
+    batch_size: 2
+    use_bfloat16: true
+    use_focal_loss: true
+    multihead_kwargs:
+      - weight_decay: 0.0001
+        final_weight_decay: 0.0001
+        lr: 0.005
+        start_lr: 0.005
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.0001
+        final_weight_decay: 0.0001
+        lr: 0.003
+        start_lr: 0.003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.0001
+        final_weight_decay: 0.0001
+        lr: 0.001
+        start_lr: 0.001
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.0001
+        final_weight_decay: 0.0001
+        lr: 0.0003
+        start_lr: 0.0003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.0001
+        final_weight_decay: 0.0001
+        lr: 0.0001
+        start_lr: 0.0001
+        final_lr: 0.0
+        warmup: 0.
+
+      - weight_decay: 0.001
+        final_weight_decay: 0.001
+        lr: 0.005
+        start_lr: 0.005
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.001
+        final_weight_decay: 0.001
+        lr: 0.003
+        start_lr: 0.003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.001
+        final_weight_decay: 0.001
+        lr: 0.001
+        start_lr: 0.001
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.001
+        final_weight_decay: 0.001
+        lr: 0.0003
+        start_lr: 0.0003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.001
+        final_weight_decay: 0.001
+        lr: 0.0001
+        start_lr: 0.0001
+        final_lr: 0.0
+        warmup: 0.
+
+      - weight_decay: 0.01
+        final_weight_decay: 0.01
+        lr: 0.005
+        start_lr: 0.005
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.01
+        final_weight_decay: 0.01
+        lr: 0.003
+        start_lr: 0.003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.01
+        final_weight_decay: 0.01
+        lr: 0.001
+        start_lr: 0.001
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.01
+        final_weight_decay: 0.01
+        lr: 0.0003
+        start_lr: 0.0003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.01
+        final_weight_decay: 0.01
+        lr: 0.0001
+        start_lr: 0.0001
+        final_lr: 0.0
+        warmup: 0.
+
+      - weight_decay: 0.1
+        final_weight_decay: 0.1
+        lr: 0.005
+        start_lr: 0.005
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.1
+        final_weight_decay: 0.1
+        lr: 0.003
+        start_lr: 0.003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.1
+        final_weight_decay: 0.1
+        lr: 0.001
+        start_lr: 0.001
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.1
+        final_weight_decay: 0.1
+        lr: 0.0003
+        start_lr: 0.0003
+        final_lr: 0.0
+        warmup: 0.
+      - weight_decay: 0.1
+        final_weight_decay: 0.1
+        lr: 0.0001
+        start_lr: 0.0001
+        final_lr: 0.0
+        warmup: 0.
+model_kwargs:
+  checkpoint: /your_vjepa2_checkpoints/vitg-384.pt
+  module_name: evals.action_anticipation_frozen.modelcustom.vit_encoder_predictor_concat_ar
+  wrapper_kwargs:
+    no_predictor: false
+    num_output_frames: 2
+    num_steps: 1
+  pretrain_kwargs:
+    encoder:
+      model_name: vit_giant_xformers
+      checkpoint_key: target_encoder
+      tubelet_size: 2
+      patch_size: 16
+      uniform_power: true
+      use_rope: true
+    predictor:
+      model_name: vit_predictor
+      checkpoint_key: predictor
+      num_frames: 64
+      depth: 12
+      num_heads: 12
+      predictor_embed_dim: 384
+      num_mask_tokens: 10
+      uniform_power: true
+      use_mask_tokens: true
+      use_sdpa: true
+      use_silu: false
+      wide_silu: false
+      use_rope: true

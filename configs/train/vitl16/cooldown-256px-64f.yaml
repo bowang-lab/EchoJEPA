@@ -1,0 +1,101 @@
+app: vjepa
+cpus_per_task: 32
+folder: /your_folder/anneal/32.8.vitl16-256px-64f
+mem_per_gpu: 220G
+nodes: 32
+tasks_per_node: 8
+data:
+  dataset_type: VideoDataset
+  datasets:
+  - /your_k710_root_dir/k710_train_paths.csv
+  - /your_data_path/ssv2_train_paths.csv
+  - /your_data/howto_320p.csv
+  datasets_weights:
+  - 0.335
+  - 0.100
+  - 0.565
+  batch_size: 12
+  crop_size: 256
+  dataset_fpcs:
+  - 64
+  - 64
+  - 64
+  fps: 4
+  num_workers: 12
+  patch_size: 16
+  persistent_workers: true
+  pin_mem: false
+  tubelet_size: 2
+data_aug:
+  auto_augment: false
+  motion_shift: false
+  random_resize_aspect_ratio:
+  - 0.75
+  - 1.35
+  random_resize_scale:
+  - 0.3
+  - 1.0
+  reprob: 0.0
+loss:
+  loss_exp: 1.0
+mask:
+- aspect_ratio:
+  - 0.75
+  - 1.5
+  full_complement: false
+  max_keep: null
+  max_temporal_keep: 1.0
+  num_blocks: 8
+  spatial_scale:
+  - 0.15
+  - 0.15
+  temporal_scale:
+  - 1.0
+  - 1.0
+- aspect_ratio:
+  - 0.75
+  - 1.5
+  full_complement: false
+  max_keep: null
+  max_temporal_keep: 1.0
+  num_blocks: 2
+  spatial_scale:
+  - 0.7
+  - 0.7
+  temporal_scale:
+  - 1.0
+  - 1.0
+meta:
+  dtype: bfloat16
+  eval_freq: 100
+  load_checkpoint: true
+  read_checkpoint: null
+  save_every_freq: 50
+  seed: 239
+  use_sdpa: true
+model:
+  model_name: vit_large
+  pred_depth: 12
+  pred_embed_dim: 384
+  pred_num_heads: 12
+  uniform_power: true
+  use_activation_checkpointing: true
+  use_mask_tokens: true
+  use_rope: true
+  zero_init_mask_tokens: true
+optimization:
+  anneal_ckpt: /your_folder/pretrain/16.8.vitl.256px.16f/e0.pt
+  ema:
+  - 0.99925
+  - 0.99925
+  epochs: 40
+  final_lr: 1.0e-06
+  final_weight_decay: 0.04
+  ipe: 300
+  ipe_scale: 1.25
+  is_anneal: true
+  lr: 0.000525
+  resume_anneal: true
+  start_lr: 0.0001
+  warmup: 0
+  weight_decay: 0.04
