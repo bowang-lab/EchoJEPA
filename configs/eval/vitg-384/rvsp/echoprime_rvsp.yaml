@@ -1,0 +1,103 @@
+# configs/eval/vitg-384/rvsp_regression.yaml
+
+app: vjepa
+cpus_per_task: 32
+folder: /home/sagemaker-user/user-default-efs/vjepa2/evals/vitg-384/rvsp
+mem_per_gpu: 80G
+nodes: 1
+tasks_per_node: 8
+num_workers: 8
+
+eval_name: video_classification_frozen_multi
+resume_checkpoint: false
+tag: echoprime-rvsp-224px   # IMPORTANT: CHANGE
+
+experiment:
+  classifier:
+    task_type: regression      # NEW: Specify regression task  
+    num_heads: 16           # changed from 16 / <-- must divide 1408 (ViT-G). Valid: 16, 22, 32, 44...
+    num_probe_blocks: 4     # changed from 4
+    use_slot_embeddings: true   # default false keeps old behavior
+    num_views: 2
+    clips_per_view: 2
+    use_factorized: true
+    num_targets: 1            # CHANGED: Replace num_classes with num_targets  
+
+  data:
+    dataset_type: VideoGroupDataset
+    dataset_train: /home/sagemaker-user/user-default-efs/vjepa2/data/csv/rvsp_train.csv
+    dataset_val:   /home/sagemaker-user/user-default-efs/vjepa2/data/csv/rvsp_val.csv
+    num_classes: 1           # IMPORTANT: 1 for regression
+    resolution: 224 
+    frames_per_clip: 16      # change to 32 to match anneal, 16 to match pretrain
+    frame_step: 1            # change to 2 --> ~1.28 s coverage on ~50 fps; use step:1 (~0.64 s) if you want tighter windows; original fpc16xfs3=48
+    num_segments: 2          # Number of videos per group  
+    num_clips_per_video: 2   # Number of clips from each video 
+    num_views_per_segment: 1 # one spatial crop (reduce stochasticity); for echo—spatial variation is low; temporal coverage more important
+    
+    miss_augment_prob: 0.10   # prob to flip a PRESENT view to MISS at train time
+    min_present: 1            # keep at least this many views per study during augmentation
+
+    target_mean: 34.4650
+    target_std: 14.0130
+
+  optimization:
+    batch_size: 1
+     # PRUNED REGRESSION GRID  
+    multihead_kwargs:  
+    # --- Group 1: 1e-4 ---  
+    - final_lr: 0.0  
+      final_weight_decay: 0.01  
+      lr: 0.0001  
+      start_lr: 0.0001  
+      warmup: 0.0  
+      weight_decay: 0.01  
+    - final_lr: 0.0  
+      final_weight_decay: 0.1  
+      lr: 0.0001  
+      start_lr: 0.0001  
+      warmup: 0.0  
+      weight_decay: 0.1  
+    - final_lr: 0.0  
+      final_weight_decay: 0.4  
+      lr: 0.0001  
+      start_lr: 0.0001  
+      warmup: 0.0  
+      weight_decay: 0.4  
+  
+    # --- Group 2: 5e-5 ---  
+    - final_lr: 0.0  
+      final_weight_decay: 0.01  
+      lr: 0.00005  
+      start_lr: 0.00005  
+      warmup: 0.0  
+      weight_decay: 0.01  
+    - final_lr: 0.0  
+      final_weight_decay: 0.1  
+      lr: 0.00005  
+      start_lr: 0.00005  
+      warmup: 0.0  
+      weight_decay: 0.1  
+    - final_lr: 0.0  
+      final_weight_decay: 0.4  
+      lr: 0.00005  
+      start_lr: 0.00005  
+      warmup: 0.0  
+      weight_decay: 0.4  
+        
+    num_epochs: 20  
+    use_bfloat16: true  
+    use_pos_embed: false  
+
+
+model_kwargs:
+  checkpoint: null
+  module_name: evals.video_classification_frozen.modelcustom.echo_prime_encoder
+  pretrain_kwargs: {}
+  wrapper_kwargs:
+    echo_prime_root: /home/sagemaker-user/user-default-efs/vjepa2/evals/video_classification_frozen/modelcustom/EchoPrime
+    # or set explicit absolute paths:
+    # encoder_ckpt: /.../model_data/weights/echo_prime_encoder.pt
+    # view_ckpt: /.../model_data/weights/view_classifier.pt
+    force_fp32: true
+    bin_size: 50

@@ -1,0 +1,125 @@
+# configs/eval/vitg-384/view/vjepa_view_224px_linear.yaml
+# LINEAR PROBE CLASSIFICATION CONFIG
+#
+# For view classification sample efficiency experiments
+
+app: vjepa
+cpus_per_task: 32
+folder: /home/sagemaker-user/user-default-efs/vjepa2/evals/vitg-384/view_classification_linear
+mem_per_gpu: 80G
+nodes: 1
+tasks_per_node: 8
+num_workers: 8
+
+eval_name: video_classification_frozen
+resume_checkpoint: true
+tag: view-linear-vitg16-336-16f-pt280-an81-fs2-ns2-224px-100pct
+
+experiment:
+  classifier:
+    task_type: classification
+    probe_type: linear          # NEW: Specify probe type
+    num_heads: 16               # Ignored for linear probe
+    num_probe_blocks: 1         # Ignored for linear probe
+    use_layernorm: true
+    dropout: 0.0
+
+  data:
+    dataset_type: VideoDataset
+    # Update these paths for your view classification data
+    # For sample efficiency: create _1pct.csv, _10pct.csv variants
+    dataset_train: /home/sagemaker-user/user-default-efs/vjepa2/data/csv/uhn_views_22k_train.csv
+    dataset_val: /home/sagemaker-user/user-default-efs/vjepa2/data/csv/uhn_views_22k_val.csv
+    
+    num_classes: 13             # Or whatever your view count is
+    resolution: 224
+    frames_per_clip: 16
+    frame_step: 2
+    num_segments: 2
+    num_views_per_segment: 1
+
+  optimization:
+    batch_size: 1
+    num_epochs: 10
+    use_bfloat16: true
+    use_pos_embed: false
+    
+    # LINEAR PROBE CLASSIFICATION GRID
+    multihead_kwargs:
+    # --- Group 1: 1e-3 ---
+    - final_lr: 0.0
+      final_weight_decay: 0.0
+      lr: 0.001
+      start_lr: 0.001
+      warmup: 0.0
+      weight_decay: 0.0
+    - final_lr: 0.0
+      final_weight_decay: 0.001
+      lr: 0.001
+      start_lr: 0.001
+      warmup: 0.0
+      weight_decay: 0.001
+    - final_lr: 0.0
+      final_weight_decay: 0.01
+      lr: 0.001
+      start_lr: 0.001
+      warmup: 0.0
+      weight_decay: 0.01
+
+    # --- Group 2: 5e-4 ---
+    - final_lr: 0.0
+      final_weight_decay: 0.0
+      lr: 0.0005
+      start_lr: 0.0005
+      warmup: 0.0
+      weight_decay: 0.0
+    - final_lr: 0.0
+      final_weight_decay: 0.001
+      lr: 0.0005
+      start_lr: 0.0005
+      warmup: 0.0
+      weight_decay: 0.001
+    - final_lr: 0.0
+      final_weight_decay: 0.01
+      lr: 0.0005
+      start_lr: 0.0005
+      warmup: 0.0
+      weight_decay: 0.01
+
+    # --- Group 3: 1e-4 ---
+    - final_lr: 0.0
+      final_weight_decay: 0.0
+      lr: 0.0001
+      start_lr: 0.0001
+      warmup: 0.0
+      weight_decay: 0.0
+    - final_lr: 0.0
+      final_weight_decay: 0.001
+      lr: 0.0001
+      start_lr: 0.0001
+      warmup: 0.0
+      weight_decay: 0.001
+    - final_lr: 0.0
+      final_weight_decay: 0.01
+      lr: 0.0001
+      start_lr: 0.0001
+      warmup: 0.0
+      weight_decay: 0.01
+
+model_kwargs:
+  checkpoint: "/home/sagemaker-user/user-default-efs/vjepa2/checkpoints/anneal/keep/pt-280-an81.pt"
+  module_name: evals.video_classification_frozen.modelcustom.vit_encoder_multiclip
+  
+  pretrain_kwargs:
+    encoder:
+      checkpoint_key: target_encoder
+      img_temporal_dim_size: null
+      model_name: vit_giant_xformers
+      patch_size: 16
+      tubelet_size: 2
+      uniform_power: true
+      use_rope: true
+      
+  wrapper_kwargs:
+    max_frames: 128
+    use_pos_embed: false
