@@ -10,9 +10,7 @@ data:
   - left_mp4_path
   crop_size: 256
   datasets:
-    # CSV file, each line is a trajectory dir path
-    # See https://github.com/facebookresearch/vjepa2/issues/65
-    - /your_file_path/droid_train_paths.csv
+    - /your_file_path/droid_train_paths_cw.csv
   dataset_fpcs:
   - 8
   fps: 4

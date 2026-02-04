@@ -1,0 +1,105 @@
+# configs/train/vitl16/pretrain-mimic-224px-16f.yaml
+app: vjepa
+nodes: 1
+tasks_per_node: 8
+cpus_per_task: 16
+mem_per_gpu: 220G
+folder: /home/sagemaker-user/user-default-efs/vjepa2/checkpoints/pretrain/mimic/vjepa2_vitl_224px_16f
+data:
+  dataset_type: VideoDataset
+  datasets:
+  - /home/sagemaker-user/user-default-efs/vjepa2/data/csv/mimic_annotations_s3.csv # 525k echocardiogram video clips (224px)
+  datasets_weights:
+  - 1.0
+  batch_size: 128
+  crop_size: 224
+  patch_size: 16
+  dataset_fpcs:
+  - 16 # same as vitg
+  fps: 8 # changed from 24, greater temporal coverage
+  tubelet_size: 2
+  num_workers: 8
+  persistent_workers: true
+  pin_mem: true
+data_aug:
+  auto_augment: false
+  motion_shift: false
+  random_resize_aspect_ratio:
+  - 0.9 # 0.75
+  - 1.1 # 1.35
+  random_resize_scale:
+  - 0.5 # 0.3
+  - 1.0
+  reprob: 0.0
+loss:
+  loss_exp: 1.0
+mask:
+- aspect_ratio:
+  - 0.75
+  - 1.5
+  full_complement: false
+  max_keep: null
+  max_temporal_keep: 1.0
+  num_blocks: 8
+  spatial_scale:
+  - 0.15
+  - 0.15
+  temporal_scale:
+  - 1.0
+  - 1.0
+- aspect_ratio:
+  - 0.75
+  - 1.5
+  full_complement: false
+  max_keep: null
+  max_temporal_keep: 1.0
+  num_blocks: 2
+  spatial_scale:
+  - 0.7
+  - 0.7
+  temporal_scale:
+  - 1.0
+  - 1.0
+meta:
+  dtype: bfloat16
+  eval_freq: 100
+  load_checkpoint: false
+  read_checkpoint: null
+  save_every_freq: 2
+  seed: 234
+  use_sdpa: true
+model:
+  model_name: vit_large
+  pred_depth: 12
+  pred_embed_dim: 384
+  pred_num_heads: 12
+  uniform_power: true
+  use_activation_checkpointing: true
+  use_mask_tokens: true
+  num_mask_tokens: 10
+  use_rope: true
+  zero_init_mask_tokens: true
+optimization:
+  is_anneal: false # set true init linear decay schedule, otherwise cosine decay
+  force_load_pretrain: false # force loading of vitl ckpt, set to false if you have latest.pt and are resuming
+  anneal_ckpt: /home/sagemaker-user/user-default-efs/vjepa2/checkpoints/vitl.pt
+    
+  # EMA, WD as in V-JEPA2 recipe
+  ema: [0.99925, 0.99925]
+  weight_decay: 0.04
+  final_weight_decay: 0.04
+
+  # Schedule is warmup (epochs 0..warmup) then constant LR through total epochs
+  ipe: 300
+  ipe_scale: 1.25
+
+  # Scale LR from the 3072-global-batch recipe:
+  # 5.25e-4 * (GLOBAL_BS/3072) = NEW_LR
+  start_lr: 3.33e-5
+  lr: 1.75e-4
+  final_lr: 1.75e-4
+
+  warmup: 40
+  # Total epochs must be > warmup
+  # epochs=240 => total steps ~= 240 * 300 = 72k steps (warmup included)
+  epochs: 240

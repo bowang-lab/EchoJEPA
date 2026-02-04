@@ -1,0 +1,98 @@
+app: vjepa
+cpus_per_task: 32
+folder: /home/sagemaker-user/user-default-efs/vjepa2/checkpoints/anneal/1.8.vitg16-336px-16f-echo-0930-v1
+mem_per_gpu: 80G
+nodes: 1
+tasks_per_node: 8
+data:
+  dataset_type: VideoDataset
+  datasets:
+  - /home/sagemaker-user/user-default-efs/vjepa2/data/csv/annotations_s3.csv # 18.1M echocardiogram video clips
+  datasets_weights:
+  - 1.0
+  batch_size: 80 # decreased from 80
+  crop_size: 336 # changed from 384
+  dataset_fpcs:
+  - 16 # changed from 16
+  fps: 24 # changed from 4, greater temporal resolution
+  num_workers: 8
+  patch_size: 16
+  persistent_workers: true
+  pin_mem: false # changed from false
+  tubelet_size: 2
+data_aug:
+  auto_augment: false
+  motion_shift: false
+  random_resize_aspect_ratio:
+  - 0.9 # default 0.75
+  - 1.1 # default 1.35
+  random_resize_scale:
+  - 0.5 # default 0.3
+  - 1.0
+  reprob: 0.0
+loss:
+  loss_exp: 1.0
+mask:
+- aspect_ratio:
+  - 0.75
+  - 1.5
+  full_complement: false
+  max_keep: null
+  max_temporal_keep: 1.0
+  num_blocks: 8
+  spatial_scale:
+  - 0.15
+  - 0.15
+  temporal_scale:
+  - 1.0
+  - 1.0
+- aspect_ratio:
+  - 0.75
+  - 1.5
+  full_complement: false
+  max_keep: null
+  max_temporal_keep: 1.0
+  num_blocks: 2
+  spatial_scale:
+  - 0.7
+  - 0.7
+  temporal_scale:
+  - 1.0
+  - 1.0
+meta:
+  s3_checkpoint_uri: "s3://echodata25/vjepa2/anneal-0930/" # need to add this for s3 uploads
+  dtype: bfloat16
+  eval_freq: 100
+  load_checkpoint: true # make sure your model folder has a latest.pt inside of it
+  read_checkpoint: null # set 
+  save_every_freq: 3
+  seed: 42
+  use_sdpa: true
+model:
+  model_name: vit_giant_xformers
+  pred_depth: 12
+  pred_embed_dim: 384
+  pred_num_heads: 12
+  uniform_power: true
+  use_activation_checkpointing: true
+  use_mask_tokens: true
+  use_rope: true
+  zero_init_mask_tokens: true
+  num_mask_tokens: 10 # set automatically in the script
+optimization:
+  is_anneal: true # set true init linear decay schedule, otherwise cosine decay
+  force_load_pretrain: true # force loading of vitg-384 ckpt, set to false if you have latest.pt and are resuming
+  anneal_ckpt: /home/sagemaker-user/user-default-efs/vjepa2/checkpoints/pretrain/keep/e279.pt # start from 200 epoch pretrained checkpoint
+  ema:
+  - 0.99925
+  - 0.99925
+  epochs: 200
+  final_lr: 1.0416e-07 # orig 1.0e-06 (scaled by ref batch size 3072)
+  final_weight_decay: 0.04
+  ipe: 300
+  ipe_scale: 1.0 # 1.25
+  lr: 5.468e-05 # orig 0.000525 (scaled by ref batch size 3072)
+  # resume_anneal: true # unused
+  # start_lr: 1.0416e-05 # orig 0.0001 (scaled by ref batch size 3072) # unused for linear decay
+  warmup: 0
+  weight_decay: 0.04
