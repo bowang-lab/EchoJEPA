@@ -2,11 +2,11 @@
 
 Alif Munim, Adibvafa Fallahpour, Teodora Szasz, Ahmadreza Attarpour, River Jiang, Brana Sooriyakanthan, Maala Sooriyakanthan, Heather Whitney, Jeremy Slivnick, Barry Rubin, Wendy Tsang, Bo Wang
 
-[[`Paper`]()] [[`Blog`]()] [[`BibTex`](#Citation)]
+[[`Paper`](https://arxiv.org/abs/2602.02603)] [[`Blog`]()] [[`BibTex`](#Citation)]
 
 Official Pytorch codebase for EchoJEPA.
 
-Foundation models for echocardiography promise to reduce annotation burden and improve diagnostic consistency by learning generalizable representations from large unlabeled video archives. However, current approaches fail to disentangle anatomical signal from the stochastic speckle and acquisition artifacts that dominate ultrasound imagery. We present EchoJEPA, a foundation model for echocardiography trained on 18 million echocardiograms across 300K patients, the largest pretraining corpus for this modality to date. We also introduce a novel multi-view probing framework with factorized stream embeddings that standardizes evaluation under frozen backbones. Compared to prior methods, EchoJEPA reduces left ventricular ejection fraction estimation error by 19% and achieves 87.4% view classification accuracy. EchoJEPA exhibits strong sample efficiency, reaching 78.6% accuracy with only 1% of labeled data versus 42.1% for the best baseline trained on 100%. Under acoustic perturbations, EchoJEPA degrades by only 2.3% compared to 16.8% for the next best model, and transfers zero-shot to pediatric patients with 15% lower error than the next best model, outperforming all fine-tuned baselines. These results establish latent prediction as a superior paradigm for ultrasound foundation models.
+Foundation models for echocardiography often struggle to disentangle anatomical signal from the stochastic speckle and acquisition artifacts inherent to ultrasound. We present EchoJEPA, a foundation model trained on 18 million echocardiograms across 300K patients, representing the largest pretraining corpus for this modality to date. By leveraging a latent predictive objective, EchoJEPA learns robust anatomical representations that ignore speckle noise. We validate this using a novel multi-view probing framework with frozen backbones, where EchoJEPA outperforms state-of-the-art baselines by approximately 20% in left ventricular ejection fraction (LVEF) estimation and 17% in right ventricular systolic pressure (RVSP) estimation. The model also exhibits remarkable sample efficiency, reaching 79% view classification accuracy with only 1% of labeled data versus 42% for the best baseline trained on 100%. Crucially, EchoJEPA demonstrates superior generalization, degrading by only 2% under physics-informed acoustic perturbations compared to 17% for competitors. Most remarkably, its zero-shot performance on pediatric patients surpasses fully fine-tuned baselines, establishing latent prediction as a superior paradigm for robust, generalizable medical AI.
 
 <p align="center">
 	<img src="assets/echo_fig1a.png" width=100%>
@@ -100,7 +100,7 @@ Foundation models for echocardiography promise to reduce annotation burden and i
   </tr>
   <tr>
     <td>EchoJEPA-L</td>
-    <td>5.95</td>
+    <td>5.97</td>
     <td>7.39</td>
     <td>4.85</td>
   </tr>
@@ -154,6 +154,13 @@ Foundation models for echocardiography promise to reduce annotation burden and i
     <td><b>87.4</b></td>
   </tr>
 </table>
+
+EchoJEPA models trained on just 1% of labeled data outperform baselines trained on 100%. Even the publicly trained EchoJEPA-L achieves 57.6% accuracy with 1% labels (vs. 42.1% for EchoPrime), while EchoJEPA-G reaches 78.6%, nearly double the fully-supervised baseline. This efficiency implies that latent prediction yields dense representations capable of defining the view manifold with minimal supervision, as evidenced by the distinct anatomical clustering in the figure below.
+
+<p align="center">
+	<img src="assets/umap_views.png" width=100%>
+</p>
+
 
 #### Robustness to Acoustic Degradation
 <table>
@@ -337,9 +344,9 @@ Change \# nodes and local batch size as needed to not exceed available GPU memor
 
 ##### Local
 
-To run locally, specify the GPUs to use on
+To run locally, specify the GPUs to use. For example, training an LVEF probe:
 ```
-python -m evals.main --fname configs/eval/vitl16/ssv2.yaml \
+python -m evals.main --fname configs/eval/vitg-384/lvef/echojepa_lvef.yaml \
   --devices cuda:0 cuda:1
 ```
 
@@ -347,10 +354,23 @@ python -m evals.main --fname configs/eval/vitl16/ssv2.yaml \
 
 ```
 python -m evals.main_distributed \
-  --fname configs/eval/vitl/ssv2.yaml  \
+  --fname configs/eval/vitg-384/lvef/echojepa_lvef.yaml  \
   --time 8600 \
   --account my_account --qos=my_qos
 ```
+
+Additional configs can be found for other tasks, including `configs/eval/vitg-384/view` and `configs/eval/vitg-384/rvsp`. Each directory has ready-made configs for PanEcho, EchoPrime, VideoMAE, and EchoJEPA. All that needs to be modified are the checkpoint and dataset paths. There are additional configs for EchoJEPA-L under `configs/eval/vitl`.
+
+
+#### Probe inference
+
+To do inference with a trained probe, you can use the inference configs under `configs/inference/vitg-384` or `configs/eval/vitl`. For example, performing inference using a trained LVEF probe:
+```
+python -m evals.main --fname configs/inference/vitl/lvef.yaml --devices cuda:0 cuda:1 cuda:2
+```
+
+Here, all you need to change is the dataset path, model checkpoint path, probe checkpoint path, and the save path for the predictions.
+
 
 ### Pretraining
 
@@ -362,7 +382,7 @@ can be found in the same directory as the config for initial training.
 #### Local
 
 ```
-python -m app.main --fname configs/train/vitl16/pretrain-256px-16f.yaml \
+python -m app.main --fname configs/train/vitl16/pretrain-mimic-224px-16f.yaml \
   --devices cuda:0
 ```
 
@@ -370,23 +390,7 @@ python -m app.main --fname configs/train/vitl16/pretrain-256px-16f.yaml \
 
 ```
 python -m app.main_distributed \
-  --fname configs/train/vitl16/pretrain-256px-16f.yaml
-  --time 6000
-  --account my_account --qos=my_qos
-```
-
-#### Local
-
-```
-python -m app.main --fname configs/train/vitg16/droid-256px-8f.yaml \
-  --devices cuda:0
-```
-
-#### Distributed
-
-```
-python -m app.main_distributed \
-  --fname configs/train/vitg16/droid-256px-8f.yaml
+  --fname configs/train/vitl16/pretrain-mimic-224px-16f.yaml
   --time 6000
   --account my_account --qos=my_qos
 ```
@@ -431,10 +435,13 @@ are licensed under the Apache 2.0 license.
 ## Citation
 If you find this repository useful in your research, please consider giving a star :star: and a citation
 ```bibtex
-@article{munim2026echojepa,
-  title={EchoJEPA: A Latent Predictive Foundation Model for Echocardiography},
-  author={Munim, Alif and Fallahpour, Adibvafa and Szasz, Teodora and Attarpour, Ahmadreza and Jiang, River and Sooriyakanthan, Brana and Sooriyakanthan, Maala and Whitney, Heather and Slivnick, Jeremy and Rubin, Barry and Tsang, Wendy and Wang, Bo},
-  journal={arXiv preprint arXiv:2602.XXXXX},
-  year={2026}
+@misc{munim2026echojepalatentpredictivefoundation,
+      title={EchoJEPA: A Latent Predictive Foundation Model for Echocardiography}, 
+      author={Alif Munim and Adibvafa Fallahpour and Teodora Szasz and Ahmadreza Attarpour and River Jiang and Brana Sooriyakanthan and Maala Sooriyakanthan and Heather Whitney and Jeremy Slivnick and Barry Rubin and Wendy Tsang and Bo Wang},
+      year={2026},
+      eprint={2602.02603},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2602.02603}, 
 }
 ```
