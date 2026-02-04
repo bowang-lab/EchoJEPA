@@ -1,0 +1,1361 @@
+{
+    "Left Ventricle": {
+        "Left Ventricle:": [
+            "Ventricolo sinistro non ben visualizzato."
+        ],
+        "Linear Cavity Size- LVIDd 2D (Evidence based)": [
+            "Il ventricolo sinistro è di dimensioni e funzione sistolica sostanzialmente normali.",
+            "Il ventricolo sinistro è di dimensioni e funzione sistolica normali.",
+            "Il ventricolo sinistro è piccolo per la dimensione lineare della cavità.",
+            "Il ventricolo sinistro è piccolo",
+            "Il ventricolo sinistro è piccolo.",
+            "Dimensioni del ventricolo sinistro normali per la dimensione lineare della cavità.",
+            "Dimensioni del ventricolo sinistro normali per volume",
+            "Dimensioni del ventricolo sinistro normali per volume.",
+            "Dimensioni del ventricolo sinistro normali",
+            "Il ventricolo sinistro è di dimensioni e funzione sistolica normali",
+            "Ventricolo sinistro lievemente dilatato per volume.",
+            "Ventricolo sinistro lievemente dilatato per la dimensione lineare della cavità.",
+            "Ventricolo sinistro lievemente dilatato",
+            "Ventricolo sinistro moderatamente dilatato per la dimensione lineare della cavità.",
+            "Ventricolo sinistro moderatamente dilatato per volume.",
+            "Ventricolo sinistro moderatamente dilatato",
+            "Ventricolo sinistro gravemente dilatato per la dimensione lineare della cavità.",
+            "Ventricolo sinistro gravemente dilatato.",
+            "Ventricolo sinistro lievemente dilatato per volume."
+        ],
+        "Volumetric Cavity Size EDV (Evidence based)": [
+            "Il ventricolo sinistro è piccolo.",
+            "Dimensioni del ventricolo sinistro normali per volume.",
+            "Dimensioni del ventricolo sinistro normali",
+            "Ventricolo sinistro lievemente dilatato per volume.",
+            "Ventricolo sinistro moderatamente dilatato per volume.",
+            "Ventricolo sinistro gravemente dilatato per volume."
+        ],
+        "Wall thickness- IVSd 2D or LVPWd 2D (Evidence based)": [
+            "Spessore della parete del ventricolo sinistro normale.",
+            "Lieve ipertrofia del ventricolo sinistro.",
+            "Ipertrofia del ventricolo sinistro da lieve a moderata.",
+            "Ipertrofia moderata del ventricolo sinistro.",
+            "Ipertrofia del ventricolo sinistro da moderata a grave.",
+            "Grave ipertrofia del ventricolo sinistro.",
+            "Reperti coerenti con ipertrofia settale asimmetrica.",
+            "Reperti coerenti con lieve ipertrofia settale.",
+            "Lieve ipertrofia settale; lo spessore della parete restante è normale.",
+            "Ipertrofia settale da lieve a moderata; lo spessore della parete restante è normale.",
+            "Ipertrofia settale moderata; lo spessore della parete restante è normale.",
+            "Lo spessore della parete del ventricolo sinistro è entro i limiti superiori della normalità."
+        ],
+        "Ventricular mass- Linear method": [
+            "Reperti coerenti con rimodellamento concentrico",
+            "Lieve ipertrofia del ventricolo sinistro",
+            "Ipertrofia del ventricolo sinistro da lieve a moderata",
+            "Ipertrofia moderata del ventricolo sinistro",
+            "Ipertrofia del ventricolo sinistro da moderata a grave.",
+            "Grave ipertrofia del ventricolo sinistro."
+        ],
+        "Pattern of Hypertrophy": [
+            "Reperti coerenti con ipertrofia concentrica.",
+            "Reperti coerenti con ipertrofia eccentrica.",
+            "Reperti coerenti con un setto sigmoideo dell'anziano",
+            "Reperti coerenti con cardiomiopatia ipertrofica.",
+            "Reperti coerenti con ipertrofia settale asimmetrica.",
+            "C'è ipertrofia confinata all'apice del ventricolo sinistro, coerente con cardiomiopatia ipertrofica apicale.",
+            "Ci sono numerose trabecolature prominenti e profonde rientranze intertrabecolari, coerenti con cardiomiopatia non compattata.",
+            "Obliterazione della cavità del ventricolo sinistro.",
+            "Setto a forma di sigmoide con lieve ipertrofia focale del setto basale, che misura fino a <numerical>cm; lo spessore della parete restante è normale.",
+            "Ipertrofia focale moderata del ventricolo sinistro dell'anterosetto."
+        ],
+        "=Peak": [
+            "Il gradiente intracavitario di picco è: <numerical> mmHG."
+        ],
+        "LVOT obstruction/SAM": [
+            "Nessun movimento sistolico anteriore dei lembi mitralici / ostruzione del tratto del ventricolo sinistro.",
+            "C'è un lieve movimento sistolico anteriore della valvola mitralica.",
+            "Lieve movimento sistolico anteriore dei lembi mitralici senza ostruzione significativa del tratto del ventricolo sinistro.",
+            "Movimento sistolico anteriore dei lembi mitralici da lieve a moderato senza ostruzione significativa del tratto del ventricolo sinistro.",
+            "C'è un moderato movimento sistolico anteriore della valvola mitralica.",
+            "C'è un grave movimento sistolico anteriore della valvola mitralica.",
+            "Non c'è evidenza di ostruzione del tratto di efflusso del ventricolo sinistro a riposo.",
+            "C'è evidenza di ostruzione discreta del tratto di efflusso membranoso del ventricolo sinistro.",
+            "C'è evidenza di ostruzione dinamica del tratto di efflusso del ventricolo sinistro a riposo."
+        ],
+        "=Resting": [
+            "Il gradiente del tratto di efflusso a riposo è: <numerical> mmHG."
+        ],
+        "=LVOT": [
+            "Il gradiente del tratto di efflusso del ventricolo sinistro dopo PVC è: <numerical> mmHG.",
+            "Il gradiente del tratto di efflusso del ventricolo sinistro dopo PVC è: <numerical> mmHG."
+        ],
+        "LV Function- EF 2D (Evidence based)": [
+            "La funzione sistolica complessiva del ventricolo sinistro è normale",
+            "C'è una funzione sistolica iperdinamica del ventricolo sinistro.",
+            "Funzione sistolica del ventricolo sinistro normale.",
+            "Funzione sistolica del ventricolo sinistro lievemente depressa.",
+            "Funzione sistolica del ventricolo sinistro moderatamente depressa.",
+            "Funzione sistolica del ventricolo sinistro gravemente depressa.",
+            "Disfunzione sistolica del ventricolo sinistro MOLTO GRAVE."
+        ],
+        "=LV": [
+            "La frazione di eiezione del ventricolo sinistro è del <numerical> %.",
+            "La frazione di eiezione del ventricolo sinistro è <numerical>",
+            "La funzione sistolica del ventricolo sinistro è al limite inferiore della normalità con una frazione di eiezione stimata tra il <numerical> e il <numerical>%.",
+            "La funzione sistolica del ventricolo sinistro è normale con una frazione di eiezione stimata del <numerical> %",
+            "La funzione sistolica del ventricolo sinistro è normale con una frazione di eiezione stimata del <numerical>%",
+            "C'è un movimento della parete regionale normale La funzione sistolica del ventricolo sinistro è normale con una frazione di eiezione stimata tra il <numerical> e il <numerical>%.",
+            "La funzione sistolica del ventricolo sinistro è normale, con una frazione di eiezione stimata del <numerical> %.",
+            "La funzione sistolica del ventricolo sinistro è normale, con una frazione di eiezione stimata dal <numerical> al <numerical> %.",
+            "La funzione sistolica del ventricolo sinistro è normale con una frazione di eiezione stimata tra il <numerical> e il <numerical>%.",
+            "La funzione sistolica del ventricolo sinistro è iperdinamica con una frazione di eiezione stimata tra il <numerical> e il <numerical>%.",
+            "La funzione sistolica del ventricolo sinistro è lievemente compromessa con una frazione di eiezione stimata tra il <numerical> e il <numerical>%.",
+            "La funzione sistolica del ventricolo sinistro è moderatamente compromessa con una frazione di eiezione stimata tra il <numerical> e il <numerical>%.",
+            "La funzione sistolica del ventricolo sinistro è gravemente compromessa con una frazione di eiezione stimata tra il <numerical> e il <numerical>%.",
+            "La funzione sistolica del ventricolo sinistro è al limite inferiore della normalità con una frazione di eiezione stimata del <numerical>%.",
+            "La funzione sistolica del ventricolo sinistro è lievemente compromessa con una frazione di eiezione stimata di <numerical>",
+            "La funzione sistolica del ventricolo sinistro è moderatamente compromessa con una frazione di eiezione stimata di <numerical>.",
+            "La funzione sistolica del ventricolo sinistro è gravemente compromessa con una frazione di eiezione stimata di <numerical>",
+            "La funzione sistolica del ventricolo sinistro era normale, con una frazione di eiezione del <numerical> %"
+        ],
+        "LV Ejection Fraction Method": [
+            "La frazione di eiezione calcolata con il metodo biplano di Simpson è del <numerical> %.",
+            "La frazione di eiezione del ventricolo sinistro è stata calcolata utilizzando il metodo biplano della regola di Simpson.",
+            "La frazione di eiezione del ventricolo sinistro è stata calcolata utilizzando il metodo monoplano della regola di Simpson.",
+            "Il metodo di Teichholz è stato utilizzato per calcolare la frazione di eiezione del ventricolo sinistro.",
+            "La frazione di eiezione del ventricolo sinistro è stata stimata al <numerical>-<numerical>%",
+            "La frazione di eiezione del ventricolo sinistro è stata stimata al <numerical> %",
+            "La frazione di eiezione del ventricolo sinistro è stata stimata visivamente al <numerical> %",
+            "La frazione di eiezione del ventricolo sinistro è stata stimata in <numerical>",
+            "La frazione di eiezione del ventricolo sinistro è stata stimata visivamente in <numerical>",
+            "La frazione di eiezione del ventricolo sinistro non ha potuto essere valutata con precisione a causa della scarsa definizione del bordo endocardico.",
+            "La frazione di eiezione calcolata con il metodo biplano di Simpson è del <numerical> %.",
+            "La frazione di eiezione del ventricolo sinistro stimata visivamente è del <numerical>-<numerical>%.",
+            "La frazione di eiezione del ventricolo sinistro stimata visivamente è del <numerical> %."
+        ],
+        "Septal Motion": [
+            "Si osserva un movimento settale interventricolare invertito ed è un reperto comune nel paziente post-chirurgia a cuore aperto.",
+            "Movimento settale paradosso coerente con un ritardo di conduzione intraventricolare o blocco di branca.",
+            "Movimento settale paradosso coerente con un pacemaker del ventricolo destro.",
+            "C'è un appiattimento del setto interventricolare in diastole, coerente con un sovraccarico di volume del ventricolo destro.",
+            "C'è un appiattimento del setto interventricolare sia in sistole che in diastole, coerente con un sovraccarico di pressione e volume del ventricolo destro.",
+            "C'è un 'rimbalzo' del setto in tarda diastole coerente con una fisiologia costrittiva."
+        ],
+        "Thrombus": [
+            "Nessuna evidenza di trombo",
+            "Nessun trombo del ventricolo sinistro visualizzato.",
+            "Non si può escludere un trombo murale apicale del ventricolo sinistro. Si raccomanda di ripetere lo studio con un agente di contrasto per il ventricolo sinistro.",
+            "C'è la possibilità di un trombo murale apicale del ventricolo sinistro.",
+            "I reperti sono coerenti con un probabile trombo murale apicale del ventricolo sinistro.",
+            "C'è evidenza di un trombo murale apicale del ventricolo sinistro.",
+            "Contrasto spontaneo coerente con la stasi.",
+            "C'è evidenza di un trombo murale apicale del ventricolo sinistro sporgente e mobile di <numerical> cm x <numerical> cm con un potenziale embolico significativo."
+        ],
+        "Tumor": [
+            "Una massa ecogena coerente con un tumore è visualizzata.",
+            "La massa è sessile",
+            "La massa è mobile",
+            "La dimensione della massa è di <numerical> mm per <numerical> mm"
+        ],
+        "Diastolic Function": [
+            "Impossibile valutare la funzione diastolica a causa del ritmo cardiaco irregolare.",
+            "La funzione diastolica è indeterminata a causa di parametri discordanti.",
+            "C'è una funzione diastolica normale",
+            "I parametri diastolici del ventricolo sinistro erano normali.",
+            "Lieve disfunzione diastolica. C'è un'inversione del rapporto E su A e/o un tempo di decelerazione prolungato coerente con un rilassamento compromesso del ventricolo sinistro.",
+            "Disfunzione diastolica moderata. Le caratteristiche erano coerenti con un modello di riempimento del ventricolo sinistro pseudonormale, con concomitante rilassamento anomalo e aumento della pressione di riempimento.",
+            "Grave disfunzione diastolica. Gli indici Doppler tissutale/Doppler mitralico sono coerenti con una fisiologia restrittiva con pressioni atriali sinistre marcatamente elevate a riposo.",
+            "A causa della tachicardia, c'è una fusione dei contributi precoci e atriali al riempimento del ventricolo sinistro. La funzione diastolica del ventricolo sinistro è indeterminata.",
+            "La funzione diastolica del ventricolo sinistro non ha potuto essere valutata a causa della presenza di fibrillazione atriale durante lo studio.",
+            "La funzione diastolica del ventricolo sinistro è indeterminata in questo studio a causa della presenza di stenosi mitralica.",
+            "La funzione diastolica del ventricolo sinistro è indeterminata in questo studio a causa della presenza di riparazione della valvola mitralica.",
+            "La funzione diastolica del ventricolo sinistro è indeterminata in questo studio a causa della presenza di riparazione o sostituzione della valvola mitralica.",
+            "La funzione diastolica del ventricolo sinistro è indeterminata in questo studio a causa della presenza di grave calcificazione dell'anello mitralico.",
+            "La funzione diastolica del ventricolo sinistro è indeterminata poiché il paziente ha avuto un trapianto di cuore.",
+            "La funzione diastolica del ventricolo sinistro è indeterminata in questo studio",
+            "La funzione diastolica del ventricolo sinistro è indeterminata poiché il paziente ha un rigurgito aortico eccentrico.",
+            "La funzione diastolica del ventricolo sinistro non ha potuto essere valutata a causa del ritmo cardiaco durante lo studio.",
+            "La funzione diastolica del ventricolo sinistro è indeterminata in questo studio a causa della presenza di pacemaker.",
+            "Difficile valutare la funzione diastolica a causa di un precedente trapianto di cuore.",
+            "La funzione diastolica del ventricolo sinistro è indeterminata.",
+            "C'è una disfunzione diastolica di grado I.",
+            "C'è una disfunzione diastolica di grado II."
+        ],
+        "Filling Pressure": [
+            "I parametri Doppler sono coerenti con basse pressioni di riempimento e ridotto volume intravascolare.",
+            "I parametri Doppler e/o le velocità dell'anello mitralico laterale (E`) sono coerenti con normali pressioni di riempimento del ventricolo sinistro.",
+            "I parametri Doppler e/o le velocità dell'anello mitralico laterale (E`) sono coerenti con elevate pressioni di riempimento del ventricolo sinistro.",
+            "I parametri Doppler e/o le velocità dell'anello mitralico laterale (E`) sono coerenti con pressioni di riempimento del ventricolo sinistro significativamente elevate.",
+            "I parametri Doppler sono compatibili con un cuore giovane trapiantato.",
+            "C'è una fusione dei contributi precoci e atriali al riempimento del ventricolo sinistro."
+        ],
+        "LVAD": [
+            "Si vede una cannula di ingresso di un dispositivo di assistenza ventricolare sinistro nell'apice del ventricolo sinistro orientata verso la valvola mitralica e il setto interventricolare è neutro, coerente con una normale funzione LVAD. L'interrogazione Color e Doppler a impulsi della cannula LVAD dimostra un flusso laminare normale.",
+            "Si vede una cannula di ingresso di un dispositivo di assistenza ventricolare sinistro nel ventricolo sinistro diretta verso il setto ventricolare, suggerendo un posizionamento anomalo.",
+            "Si vede una cannula di ingresso di un dispositivo di assistenza ventricolare sinistro nell'apice del ventricolo sinistro e il ventricolo sinistro appare disteso. L'interrogazione Color e Doppler a impulsi della cannula LVAD rivela un flusso turbolento e/o c'è un flusso di rigurgito, coerente con una funzione LVAD anomala.",
+            "Si vede una cannula di ingresso di un dispositivo di assistenza ventricolare sinistro nell'apice del ventricolo sinistro e il setto interventricolare è spostato verso sinistra, suggerendo ipovolemia, decompressione eccessiva o disfunzione del ventricolo destro.",
+            "Si vede una cannula di ingresso di un dispositivo di assistenza ventricolare sinistro nell'apice del ventricolo sinistro e il setto interventricolare è spostato verso destra, suggerendo un'ostruzione o un malfunzionamento dell'LVAD.",
+            "Si vede una cannula di ingresso di un dispositivo di assistenza ventricolare sinistro nell'apice del ventricolo sinistro e il ventricolo sinistro appare decompresso.",
+            "Flussi normali; L'interrogazione Color e Doppler a impulsi della cannula LVAD dimostra un flusso normale.",
+            "Si vede una cannula di ingresso di un dispositivo di assistenza ventricolare sinistro nell'apice del ventricolo sinistro e il ventricolo sinistro appare decompresso, la valvola aortica non si apre o si apre solo a intermittenza coerentemente con una normale funzione LVAD."
+        ],
+        "VSD Size": [
+            "Si vede un difetto del setto ventricolare piccolo.",
+            "Si vede un difetto del setto ventricolare di medie dimensioni.",
+            "Si vede un difetto del setto ventricolare grande."
+        ],
+        "VSD Type": [
+            "L'aspetto è coerente con un difetto del setto ventricolare di tipo inlet.",
+            "L'aspetto è coerente con un difetto del setto ventricolare di tipo sovracristale.",
+            "L'aspetto è coerente con un difetto del setto ventricolare perimembranoso.",
+            "L'aspetto è coerente con un difetto del setto ventricolare muscolare.",
+            "L'aspetto è coerente con un difetto completo del canale AV.",
+            "L'aspetto è coerente con un difetto del setto ventricolare di tipo post-infarto."
+        ],
+        "VSD Shunting": [
+            "C'è evidenza Doppler di uno shunt da sinistra a destra attraverso il VSD.",
+            "C'è evidenza Doppler di uno shunt da destra a sinistra attraverso il VSD.",
+            "C'è evidenza Doppler di uno shunt bidirezionale attraverso il VSD.",
+            "È visibile una patch per il VSD.",
+            "Si vede un dispositivo di occlusione attraverso il VSD.",
+            "Si vede un falso tendine nel ventricolo sinistro, un reperto normale.",
+            "Lo strain longitudinale globale è risultato del <numerical> %.",
+            "Lo strain longitudinale globale è risultato del -<numerical> %."
+        ],
+        "Wall Motion": [
+            "C'è un movimento della parete regionale normale",
+            "C'è un aneurisma del <string>.",
+            "C'è un movimento della parete regionale anomalo.",
+            "C'è ipocinesia del <string>.",
+            "L'intera parete basale dimostra un movimento normale.",
+            "I restanti segmenti del ventricolo sinistro dimostrano un movimento della parete normale.",
+            "L'intera parete media dimostra un movimento normale.",
+            "L'intera parete anterolaterale dimostra un movimento normale.",
+            "C'è discinesia del <string>.",
+            "L'intera parete laterale dimostra un movimento normale.",
+            "La parete anteriore basale dimostra un movimento normale.",
+            "La parete anteriore media dimostra un movimento normale.",
+            "Nessuna anomalia macroscopica del movimento della parete regionale.",
+            "C'è un movimento della parete regionale anomalo",
+            "La parete laterale media dimostra un movimento normale.",
+            "La parete anterolaterale basale fino alla parete inferolaterale basale dimostra un movimento normale.",
+            "Non ci sono anomalie del movimento della parete regionale",
+            "La porzione apicale dimostra un movimento normale.",
+            "I restanti segmenti del ventricolo sinistro dimostrano ipocinesia.",
+            "C'è un movimento della parete regionale normale.",
+            "L'intera parete inferosettale dimostra un movimento normale.",
+            "La parete anterolaterale media dimostra un movimento normale.",
+            "Nessuna anomalia del movimento della parete regionale",
+            "La parete anteriore media fino alla parete anterolaterale media dimostra un movimento normale.",
+            "Reperti di movimento della parete segmentale a riposo.",
+            "C'è ipocinesia globale con variazione regionale.",
+            "Grave ipocinesia globale",
+            "Ipocinesia globale presente",
+            "Grave ipocinesia globale presente.",
+            "La parete anteriore basale fino alla parete laterale dimostra un movimento normale.",
+            "La parete anteriore basale fino alla parete anterolaterale basale dimostra un movimento normale.",
+            "L'intera parete anteriore dimostra un movimento normale.",
+            "La parete anterosettale basale fino alla parete inferolaterale dimostra un movimento normale.",
+            "La parete anterosettale basale fino a quella media dimostra un movimento normale.",
+            "Non ci sono anomalie macroscopiche del movimento della parete regionale.",
+            "La parete inferolaterale basale dimostra un movimento normale.",
+            "La porzione apicale non è visualizzata.",
+            "La parete anteriore media fino a quella laterale dimostra un movimento normale.",
+            "La parete laterale basale dimostra un movimento normale.",
+            "La parete anterosettale basale fino alla parete inferolaterale basale dimostra un movimento normale.",
+            "La parete anterolaterale basale dimostra un movimento normale.",
+            "C'è acinesia del <string>.",
+            "La parete anteriore basale, quella anterolaterale basale e quella inferolaterale basale dimostrano un movimento normale.",
+            "La parete anteriore basale non è visualizzata.",
+            "Aneurisma apicale senza trombo evidente."
+        ],
+        "Quality": [
+            "Difficile da valutare a causa di un precedente trapianto di cuore.",
+            "Nessuna evidenza di vegetazione."
+        ]
+    },
+    "Resting Segmental Wall Motion Analysis": {
+        "Resting Segmental Wall Motion Analysis:": [
+            "C'è ipocinesia globale del ventricolo sinistro.",
+            "C'è un movimento della parete regionale normale.",
+            "C'è un movimento della parete regionale normale",
+            "I restanti segmenti del ventricolo sinistro dimostrano un movimento della parete normale.",
+            "I restanti segmenti del ventricolo sinistro dimostrano acinesia.",
+            "I restanti segmenti del ventricolo sinistro non sono visibili.",
+            "C'è un movimento della parete regionale anomalo"
+        ],
+        "Score": [
+            "Il punteggio totale del movimento della parete è <numerical>."
+        ],
+        "Wall Motion": [
+            "C'è un movimento della parete regionale normale",
+            "C'è un aneurisma del <string>.",
+            "C'è un movimento della parete regionale anomalo.",
+            "C'è ipocinesia del <string>.",
+            "L'intera parete basale dimostra un movimento normale.",
+            "I restanti segmenti del ventricolo sinistro dimostrano un movimento della parete normale.",
+            "L'intera parete media dimostra un movimento normale.",
+            "L'intera parete anterolaterale dimostra un movimento normale.",
+            "C'è discinesia del <string>.",
+            "L'intera parete laterale dimostra un movimento normale.",
+            "La parete anteriore basale dimostra un movimento normale.",
+            "La parete anteriore media dimostra un movimento normale.",
+            "Nessuna anomalia macroscopica del movimento della parete regionale.",
+            "C'è un movimento della parete regionale anomalo",
+            "La parete laterale media dimostra un movimento normale.",
+            "La parete anterolaterale basale fino alla parete inferolaterale basale dimostra un movimento normale.",
+            "Non ci sono anomalie del movimento della parete regionale",
+            "La porzione apicale dimostra un movimento normale.",
+            "I restanti segmenti del ventricolo sinistro dimostrano ipocinesia.",
+            "C'è un movimento della parete regionale normale.",
+            "L'intera parete inferosettale dimostra un movimento normale.",
+            "La parete anterolaterale media dimostra un movimento normale.",
+            "Nessuna anomalia del movimento della parete regionale",
+            "La parete anteriore media fino alla parete anterolaterale media dimostra un movimento normale.",
+            "Reperti di movimento della parete segmentale a riposo.",
+            "C'è ipocinesia globale con variazione regionale.",
+            "La parete anteriore basale fino alla parete laterale dimostra un movimento normale.",
+            "La parete anteriore basale fino alla parete anterolaterale basale dimostra un movimento normale.",
+            "L'intera parete anteriore dimostra un movimento normale.",
+            "La parete anterosettale basale fino alla parete inferolaterale dimostra un movimento normale.",
+            "La parete anterosettale basale fino a quella media dimostra un movimento normale.",
+            "Non ci sono anomalie macroscopiche del movimento della parete regionale.",
+            "La parete inferolaterale basale dimostra un movimento normale.",
+            "La porzione apicale non è visualizzata.",
+            "La parete anteriore media fino a quella laterale dimostra un movimento normale.",
+            "La parete laterale basale dimostra un movimento normale.",
+            "La parete anterosettale basale fino alla parete inferolaterale basale dimostra un movimento normale.",
+            "La parete anterolaterale basale dimostra un movimento normale.",
+            "C'è acinesia del <string>.",
+            "La parete anteriore basale, quella anterolaterale basale e quella inferolaterale basale dimostrano un movimento normale.",
+            "La parete anteriore basale non è visualizzata."
+        ],
+        "Visualized": [
+            "La parete anteriore basale fino a quella apicale non è visualizzata.",
+            "La parete inferiore basale fino a quella apicale non è visualizzata.",
+            "L'anomalia del movimento della parete regionale non ha potuto essere valutata a causa della scarsa definizione del bordo endocardico.",
+            "L'intera parete anteriore non è visualizzata",
+            "L'intera parete anterolaterale non è visualizzata."
+        ]
+    },
+    "Right Ventricle": {
+        "Right Ventricle:": [
+            "Dimensioni e funzione sistolica del ventricolo destro normali.",
+            "Dimensioni del ventricolo destro non ben visualizzate."
+        ],
+        "=TAPSE": [
+            "Il TAPSE è di <numerical> cm",
+            "Il TAPSE è di <numerical>cm",
+            "Il TAPSE era di <numerical> cm",
+            "Il TAPSE era di <numerical>cm"
+        ],
+        "Cavity Size- RVDd 2D (Evidence based)": [
+            "Dimensioni del ventricolo destro normali.",
+            "Ventricolo destro lievemente dilatato.",
+            "Ventricolo destro moderatamente dilatato.",
+            "Ventricolo destro gravemente dilatato.",
+            "Dimensioni del ventricolo destro ridotte."
+        ],
+        "RV Systolic Function": [
+            "Funzione sistolica del ventricolo destro normale.",
+            "Funzione sistolica del ventricolo destro iperdinamica.",
+            "Funzione sistolica del ventricolo destro lievemente depressa.",
+            "Funzione sistolica del ventricolo destro moderatamente depressa.",
+            "Funzione sistolica del ventricolo destro gravemente depressa.",
+            "C'è una funzione sistolica del ventricolo destro gravemente depressa in un modello che risparmia l'apice del ventricolo destro (segno di McConnell), un reperto che suggerisce un sovraccarico di pressione acuto del ventricolo destro."
+        ],
+        "Wall Motion": [
+            "C'è un movimento della parete regionale normale",
+            "C'è un aneurisma del <string>.",
+            "C'è un movimento della parete regionale anomalo.",
+            "C'è ipocinesia del <string>.",
+            "L'intera parete basale dimostra un movimento normale.",
+            "I restanti segmenti del ventricolo sinistro dimostrano un movimento della parete normale.",
+            "L'intera parete media dimostra un movimento normale.",
+            "L'intera parete anterolaterale dimostra un movimento normale.",
+            "C'è discinesia del <string>.",
+            "L'intera parete laterale dimostra un movimento normale.",
+            "La parete anteriore basale dimostra un movimento normale.",
+            "La parete anteriore media dimostra un movimento normale.",
+            "Nessuna anomalia macroscopica del movimento della parete regionale.",
+            "C'è un movimento della parete regionale anomalo",
+            "La parete laterale media dimostra un movimento normale.",
+            "La parete anterolaterale basale fino alla parete inferolaterale basale dimostra un movimento normale.",
+            "Non ci sono anomalie del movimento della parete regionale",
+            "La porzione apicale dimostra un movimento normale.",
+            "I restanti segmenti del ventricolo sinistro dimostrano ipocinesia.",
+            "C'è un movimento della parete regionale normale.",
+            "L'intera parete inferosettale dimostra un movimento normale.",
+            "La parete anterolaterale media dimostra un movimento normale.",
+            "Nessuna anomalia del movimento della parete regionale",
+            "La parete anteriore media fino alla parete anterolaterale media dimostra un movimento normale.",
+            "Reperti di movimento della parete segmentale a riposo.",
+            "C'è ipocinesia globale con variazione regionale.",
+            "La parete anteriore basale fino alla parete laterale dimostra un movimento normale.",
+            "La parete anteriore basale fino alla parete anterolaterale basale dimostra un movimento normale.",
+            "L'intera parete anteriore dimostra un movimento normale.",
+            "La parete anterosettale basale fino alla parete inferolaterale dimostra un movimento normale.",
+            "La parete anterosettale basale fino a quella media dimostra un movimento normale.",
+            "Non ci sono anomalie macroscopiche del movimento della parete regionale.",
+            "La parete inferolaterale basale dimostra un movimento normale.",
+            "La porzione apicale non è visualizzata.",
+            "La parete anteriore media fino a quella laterale dimostra un movimento normale.",
+            "La parete laterale basale dimostra un movimento normale.",
+            "La parete anterosettale basale fino alla parete inferolaterale basale dimostra un movimento normale.",
+            "La parete anterolaterale basale dimostra un movimento normale.",
+            "C'è acinesia del <string>.",
+            "La parete anteriore basale, quella anterolaterale basale e quella inferolaterale basale dimostrano un movimento normale.",
+            "La parete anteriore basale non è visualizzata."
+        ],
+        "Hypertrophy": [
+            "Ipertrofia del ventricolo destro al limite.",
+            "Funzione sistolica del ventricolo destro al limite della normalità.",
+            "Lieve ipertrofia del ventricolo destro.",
+            "Ipertrofia del ventricolo destro da lieve a moderata.",
+            "Ipertrofia moderata del ventricolo destro.",
+            "Ipertrofia del ventricolo destro da moderata a grave.",
+            "Grave ipertrofia del ventricolo destro.",
+            "Banda moderatrice prominente - variante normale.",
+            "Densità di eco nel ventricolo destro suggestiva di catetere, cavo del pacemaker o cavo ICD.",
+            "Densità di eco nel ventricolo destro suggestiva di cavo ICD.",
+            "Ventricolo destro non ben visualizzato."
+        ],
+        "Right ventricular assist device": [
+            "è presente.",
+            "sembra funzionare normalmente.",
+            "i reperti suggeriscono un malfunzionamento."
+        ],
+        "Masses": [
+            "Una massa ecogena coerente con un tumore è visualizzata.",
+            "Una massa ecogena coerente con un trombo è visualizzata.",
+            "La massa è sessile",
+            "La massa è mobile",
+            "La dimensione della massa è di <numerical> mm per <numerical> mm"
+        ],
+        "doppler velocity": [
+            "La velocità Doppler tissutale tricuspidale era di <numerical> cm/sec (normale > 10 cm/sec)."
+        ],
+        "other": [
+            "La variazione dell'area frazionale era > 35%.",
+            "Lo spessore della parete del ventricolo destro era normale."
+        ]
+    },
+    "Left Atrium": {
+        "Left Atrium:": [
+            "Dimensioni e morfologia dell'atrio sinistro normali.",
+            "Aspetto dell'atrio sinistro appropriato per un ricevente di trapianto."
+        ],
+        "LA Area (Evidence Based)": [
+            "L'atrio sinistro è di dimensioni normali.",
+            "Atrio sinistro lievemente dilatato.",
+            "Atrio sinistro moderatamente dilatato.",
+            "Atrio sinistro gravemente dilatato."
+        ],
+        "Thrombus": [
+            "Nessun trombo dell'atrio sinistro.",
+            "Impossibile escludere un trombo dell'atrio sinistro.",
+            "Trombo dell'atrio sinistro visibile.",
+            "Nessun trombo dell'auricola sinistra visualizzato.",
+            "Le altre pareti si contraggono bene."
+        ],
+        "Tumor": [
+            "Una massa ecogena coerente con un tumore è visualizzata.",
+            "La massa è sessile",
+            "La massa è mobile",
+            "La dimensione della massa è di <numerical> mm per <numerical> mm"
+        ],
+        "Left atrial appendage": [
+            "L'auricola sinistra ha un aspetto normale senza evidenza di trombo.",
+            "L'auricola sinistra mostra una funzione normale, con velocità di svuotamento normali.",
+            "Si vede un trombo nell'auricola sinistra.",
+            "È presente un dispositivo di occlusione dell'auricola sinistra. Il dispositivo è ben posizionato senza evidenza di flusso di colore nell'auricola e nessun trombo visibile.",
+            "L'auricola sinistra è stata legata da un precedente intervento chirurgico cardiaco e non è visibile.",
+            "Le velocità di svuotamento sono ridotte.",
+            "Contrasto ecografico spontaneo visibile nell'atrio sinistro e/o nell'auricola sinistra.",
+            "Si vede 'fango' nell'auricola sinistra (pre-trombo)."
+        ],
+        "doppler velocity": [
+            "La velocità Doppler tissutale tricuspidale era di <numerical> cm/sec (normale > 10 cm/sec)."
+        ],
+        "other": [
+            "C'è una disfunzione diastolica di grado I."
+        ]
+    },
+    "Right Atrium": {
+        "Right Atrium:": [
+            "Aspetto appropriato dell'atrio destro per un ricevente di trapianto che include l'atrio nativo e quello del donatore.",
+            "Aspetto appropriato dell'atrio destro per un ricevente di trapianto.",
+            "Dimensioni e morfologia normali dell'atrio destro.",
+            "Dimensioni e morfologia ridotte dell'atrio destro"
+        ],
+        "RA Area (Evidence based)": [
+            "L'atrio destro ha dimensioni normali.",
+            "Atrio destro lievemente dilatato.",
+            "Atrio destro moderatamente dilatato.",
+            "Atrio destro gravemente dilatato.",
+            "Valvola di Eustachio prominente (variante normale).",
+            "Rete di Chiari visualizzata nell'atrio destro (variante normale).",
+            "Densità eco nell'atrio destro che suggerisce un catetere, un filo di pacemaker o un filo di ICD.",
+            "Cannula di un dispositivo di assistenza ventricolare destro vista nell'atrio destro.",
+            "Artefatto lineare nell'atrio destro che suggerisce un catetere, un filo di pacemaker o un filo di ICD."
+        ],
+        "Thrombus": [
+            "Non c'è evidenza di trombo nell'atrio destro.",
+            "Non è possibile escludere un trombo nell'atrio destro.",
+            "È visualizzato un trombo nell'atrio destro."
+        ],
+        "Tumor": [
+            "È visualizzata una massa ecogena coerente con un tumore.",
+            "La massa è sessile",
+            "La massa è mobile",
+            "La dimensione della massa è di <numerical> mm per <numerical> mm",
+            "Non ben visualizzato."
+        ]
+    },
+    "Atrial Septum": {
+        "Atrial Septum:": [
+            "Il setto interatriale ha un aspetto normale.",
+            "Setto atriale sottile",
+            "Post-procedura transettale con shunt da sinistra a destra.",
+            "Dispositivo di chiusura"
+        ],
+        "Interatrial Septum Appearance": [
+            "C'è evidenza di un aneurisma del setto interatriale, che può essere una variante normale.",
+            "C'è evidenza di un aneurisma del setto interatriale",
+            "Aspetto del setto interatriale e Il setto interatriale si incurva da sinistra a destra, coerente con una pressione atriale sinistra elevata.",
+            "Il setto interatriale si incurva da sinistra a destra, coerente con una pressione atriale sinistra elevata.",
+            "Il setto interatriale si incurva da destra a sinistra, coerente con una pressione atriale destra elevata.",
+            "L'interrogazione Doppler a colori del setto atriale è coerente con un PFO.",
+            "Il setto interatriale è sottile e ipermobile."
+        ],
+        "ASD": [
+            "I reperti dell'eco 2D e del Doppler a colori sono coerenti con un difetto del setto atriale primum.",
+            "I reperti dell'eco 2D e del Doppler a colori sono coerenti con un difetto del setto atriale secundum.",
+            "I reperti dell'eco 2D e del Doppler a colori sono coerenti con un difetto del setto atriale sinus venosus."
+        ],
+        "Post trans-septal procedure ASD": [
+            "Post-procedura trans-settale con shunt da destra a sinistra.",
+            "Post-procedura trans-settale con shunt da sinistra a destra.",
+            "Post-procedura trans-settale con shunt bidirezionale."
+        ],
+        "Shunt": [
+            "Nessuno shunt tramite Doppler a colori.",
+            "L'interrogazione Doppler a flusso a colori e Doppler pulsato rivela uno shunt prevalentemente da destra a sinistra.",
+            "L'interrogazione Doppler a flusso a colori e Doppler pulsato rivela uno shunt prevalentemente da sinistra a destra.",
+            "Shunt bidirezionale.",
+            "Setto atriale sottile e ipermobile."
+        ],
+        "Lipomatous Hypertrophy": [
+            "C'è una lieve ipertrofia lipomatosa del setto atriale.",
+            "C'è una moderata ipertrofia lipomatosa del setto atriale.",
+            "C'è una grave ipertrofia lipomatosa del setto atriale.",
+            "Non ben visualizzato."
+        ],
+        "Closure Device": [
+            "Dispositivo di chiusura La posizione del dispositivo appare soddisfacente",
+            "La posizione del dispositivo appare soddisfacente",
+            "il Doppler a flusso a colori non mostra flusso residuo attraverso il dispositivo del setto atriale.",
+            "C'è un lieve shunt residuo attraverso il dispositivo del setto atriale.",
+            "C'è un moderato shunt residuo attraverso il dispositivo del setto atriale.",
+            "C'è un grave shunt residuo attraverso il dispositivo del setto atriale."
+        ],
+        "Bubble Study": [
+            "Lo studio con soluzione salina agitata è negativo per shunt intracardiaco.",
+            "Lo studio con soluzione salina agitata è positivo precoce, suggerendo un forame ovale pervio.",
+            "Lo studio con soluzione salina agitata è positivo tardivo, suggerendo uno shunt intrapolmonare.",
+            "Lo studio con soluzione salina agitata dimostra un effetto di contrasto negativo nell'atrio destro, suggerendo uno shunt da sinistra a destra.",
+            "Lo studio con bolle agitate è positivo per shunt da destra a sinistra solo durante la manovra di Valsalva, suggerendo un piccolo PFO."
+        ]
+    },
+    "Mitral Valve": { 
+        "Mitral Valve:": [
+            "La valvola mitrale dimostra una funzione normale con un rigurgito fisiologico in tracce.",
+            "La valvola mitrale dimostra una funzione normale.",
+            "La valvola mitrale dimostra una morfologia dei lembi normale.",
+            "La valvola mitrale non è ben visualizzata.",
+            "L'aspetto dei lembi della valvola mitrale è coerente con una valvola mitrale fessurata.",
+            "Morfologia e funzione della valvola mitrale normali senza stenosi o rigurgito significativi.",
+            "C'è evidenza di ostruzione dinamica del tratto di efflusso ventricolare sinistro a riposo.",
+            "Non c'è evidenza di ostruzione del tratto di efflusso ventricolare sinistro a riposo.",
+            "I lembi della valvola mitrale sono post-riparazione.",
+            "C'è un lieve (<2mm) ateroma della radice aortica o ispessimento del sito di anastomosi chirurgica."
+        ],
+        "Thickened": [
+            "I lembi della valvola mitrale appaiono lievemente ispessiti.",
+            "I lembi della valvola mitrale appaiono moderatamente ispessiti.",
+            "I lembi della valvola mitrale appaiono gravemente ispessiti.",
+            "I lembi della valvola mitrale anteriore e posteriore appaiono ispessiti.",
+            "Il lembo anteriore della valvola mitrale appare più ispessito di quello posteriore.",
+            "Il lembo posteriore della valvola mitrale appare più ispessito di quello anteriore."
+        ],
+        "Calcification": [
+            "Lieve calcificazione dei lembi della valvola mitrale.",
+            "Calcificazione dei lembi della valvola mitrale da lieve a moderata.",
+            "Calcificazione moderata dei lembi della valvola mitrale.",
+            "Calcificazione dei lembi della valvola mitrale da moderata a grave.",
+            "Grave calcificazione dei lembi della valvola mitrale.",
+            "I lembi della valvola mitrale anteriore e posteriore appaiono calcificati.",
+            "Il lembo anteriore della valvola mitrale appare più calcificato di quello posteriore.",
+            "Il lembo posteriore della valvola mitrale appare più calcificato di quello anteriore."
+        ],
+        "Myxomatous changes": [
+            "Ci sono cambiamenti mixomatosi in entrambi i lembi anteriore e posteriore.",
+            "I cambiamenti mixomatosi anteriori sono maggiori dei cambiamenti posteriori.",
+            "C'è un moderato cambiamento mixomatoso nei lembi della valvola mitrale.",
+            "C'è un grave cambiamento mixomatoso nei lembi della valvola mitrale.",
+            "C'è un lieve cambiamento mixomatoso nei lembi mitrali"
+        ],
+        "": [],
+        "Rheumatic deformity": [
+            "C'è una deformità dei lembi mitrali coerente con una malattia cardiaca reumatica.",
+            "C'è evidenza di fusione delle commissure mitrali, coerente con una malattia cardiaca reumatica.",
+            "C'è un abbassamento del lembo anteriore della valvola mitrale in diastole, coerente con una deformità reumatica."
+        ],
+        "Mitral Annular Calcification": [
+            "Lieve calcificazione anulare mitrale.",
+            "Calcificazione anulare mitrale da lieve a moderata.",
+            "Calcificazione anulare mitrale moderata.",
+            "Calcificazione anulare mitrale da moderata a grave.",
+            "Grave calcificazione anulare mitrale."
+        ],
+        "Prolapse": [
+            "Lieve prolasso della valvola mitrale che coinvolge il lembo anteriore mitrale.",
+            "Prolasso della valvola mitrale da lieve a moderato che coinvolge il lembo anteriore mitrale.",
+            "Prolasso moderato della valvola mitrale che coinvolge il lembo anteriore mitrale.",
+            "Grave prolasso della valvola mitrale che coinvolge il lembo anteriore mitrale.",
+            "Lieve prolasso della valvola mitrale che coinvolge la valvola mitrale posteriore.",
+            "Prolasso della valvola mitrale da lieve a moderato che coinvolge la valvola mitrale posteriore.",
+            "Prolasso moderato della valvola mitrale che coinvolge la valvola mitrale posteriore.",
+            "Grave prolasso della valvola mitrale che coinvolge la valvola mitrale posteriore.",
+            "C'è un lieve prolasso della valvola mitrale bileaflet.",
+            "C'è un moderato prolasso della valvola mitrale bileaflet, che coinvolge prevalentemente il lembo anteriore.",
+            "C'è un moderato prolasso della valvola mitrale bileaflet, che coinvolge prevalentemente il lembo posteriore.",
+            "C'è un moderato prolasso simmetrico della valvola mitrale bileaflet.",
+            "C'è un grave prolasso della valvola mitrale bileaflet, che coinvolge prevalentemente il lembo anteriore.",
+            "C'è un grave prolasso della valvola mitrale bileaflet, che coinvolge prevalentemente il lembo posteriore.",
+            "C'è un grave prolasso simmetrico della valvola mitrale bileaflet.",
+            "Non c'è evidenza di prolasso della valvola mitrale.",
+            "C'è evidenza di un'incurvatura sistolica dei lembi della valvola mitrale, senza evidenza diagnostica di prolasso della valvola mitrale."
+        ],
+        "Flail": [
+            "C'è flail del lembo anteriore mitrale, con evidenza diretta di corde rotte.",
+            "C'è flail del lembo posteriore mitrale, con evidenza diretta di corde rotte."
+        ],
+        "Restriction": [
+            "C'è una coaptazione limitata del lembo posteriore mitrale.",
+            "C'è una coaptazione limitata del lembo anteriore mitrale.",
+            "C'è una coaptazione limitata dei lembi mitralici anteriore e posteriore."
+        ],
+        "Stenosis (Evidence based)": [
+            "Morfologia e funzione della valvola mitrale normali senza stenosi (una variante normale).",
+            "Lieve stenosi mitrale non reumatica",
+            "Lieve stenosi mitrale.",
+            "Stenosi mitrale da lieve a moderata.",
+            "Stenosi mitrale moderata.",
+            "Stenosi mitrale da moderata a grave.",
+            "Stenosi mitrale moderata non reumatica.",
+            "Stenosi mitrale grave.",
+            "Nessuna stenosi della valvola mitrale",
+            "Nessuna evidenza di stenosi della valvola mitrale."
+        ],
+        "Mitral Prosthesis/Repair Type": [
+            "È presente una valvola protesica meccanica a sfera in gabbia in posizione mitrale.",
+            "È presente una valvola protesica meccanica a disco inclinabile a due lembi in posizione mitrale.",
+            "È presente una valvola protesica meccanica a disco inclinabile singolo in posizione mitrale.",
+            "È presente una valvola bioprotesica in posizione mitrale.",
+            "È presente una valvola bioprotesica (in valvola) in posizione mitrale",
+            "Una valvola bioprotesica in posizione mitrale",
+            "I lembi della valvola mitrale sono post-riparazione. È presente un anello di annuloplastica mitrale.",
+            "È presente un anello di annuloplastica mitrale.",
+            "Si vede una MitraClip sui lembi anteriore e posteriore della valvola mitrale.",
+            "Si vedono due MitraClip sui lembi anteriore e posteriore della valvola mitrale.",
+            "DUE MITRACLIP SONO ORA PRESENTI SUI LEMBI ANTERIORE E POSTERIORE DELLA VALVOLA MITRALE.",
+            "La dimensione della protesi della valvola mitrale è di <numerical> mm.",
+            "È presente una valvola protesica meccanica in posizione mitrale.",
+            "Si vedono tre MitraClip sui lembi anteriore e posteriore della valvola mitrale.",
+            "Si vedono quattro MitraClip sui lembi anteriore e posteriore della valvola mitrale"
+        ],
+        "MV Prosthesis Well Seated": [
+            "La protesi della valvola mitrale appare ben posizionata.",
+            "C'è un lieve movimento oscillante della protesi mitrale.",
+            "C'è un moderato movimento oscillante della protesi mitrale.",
+            "C'è un grave movimento oscillante della protesi mitrale."
+        ],
+        "Prosthesis leaflet motion": [
+            "La protesi mitrale dimostra un movimento dei lembi normale.",
+            "Il movimento del lembo protesico mitrale appare lievemente limitato.",
+            "Il movimento del lembo protesico mitrale appare moderatamente limitato.",
+            "Il movimento del lembo protesico mitrale appare gravemente limitato."
+        ],
+        "Mitral paravalvular Regurgitation": [
+            "Non c'è evidenza di rigurgito mitralico paravalvolare.",
+            "C'è un lieve rigurgito mitralico paravalvolare.",
+            "C'è un rigurgito mitralico paravalvolare da lieve a moderato.",
+            "C'è un moderato rigurgito mitralico paravalvolare.",
+            "C'è un rigurgito mitralico paravalvolare da moderato a grave.",
+            "C'è un grave rigurgito mitralico paravalvolare.",
+            "Non è possibile escludere il rigurgito mitralico paravalvolare, considerare l'ETT per un'ulteriore valutazione."
+        ],
+        "Mitral Prosthesis gradient": [
+            "La protesi mitrale dimostra un gradiente transvalvolare normale per tipo e dimensione della valvola.",
+            "La protesi mitrale dimostra un gradiente transvalvolare lievemente aumentato per tipo e dimensione della valvola. Ciò suggerisce una lieve stenosi mitrale protesica.",
+            "La protesi mitrale dimostra un gradiente transvalvolare moderatamente aumentato per tipo e dimensione della valvola. Ciò suggerisce una moderata stenosi mitrale protesica.",
+            "La protesi mitrale dimostra un gradiente transvalvolare gravemente aumentato per tipo e dimensione della valvola. Ciò suggerisce una grave stenosi mitrale protesica."
+        ],
+        "Mitral Vegetation": [
+            "Nessuna evidenza di vegetazione.",
+            "Non c'è evidenza di una vegetazione sulla valvola mitrale.",
+            "C'è evidenza di una vegetazione attaccata al lembo anteriore della valvola mitrale.",
+            "C'è evidenza di una vegetazione attaccata al lembo posteriore della valvola mitrale.",
+            "C'è evidenza di una vegetazione attaccata ai lembi anteriore e posteriore della valvola mitrale.",
+            "C'è evidenza di una vegetazione sulla valvola mitrale protesica.",
+            "Non è possibile escludere una vegetazione sulla valvola mitrale, considerare l'ETT per un'ulteriore valutazione."
+        ],
+        "Mitral Regurgitation": [
+            "Nessun rigurgito mitralico visto.",
+            "C'è un rigurgito mitralico da trascurabile a lieve",
+            "C'è un rigurgito mitralico trascurabile.",
+            "C'è un rigurgito mitralico trascurabile-lieve",
+            "C'è un lieve rigurgito della valvola mitrale.",
+            "C'è un lieve rigurgito mitralico.",
+            "C'è un rigurgito mitralico da lieve a moderato.",
+            "C'è almeno un rigurgito moderato della valvola mitrale.",
+            "C'è un rigurgito moderato della valvola mitrale.",
+            "C'è un rigurgito della valvola mitrale da moderato a grave.",
+            "C'è un grave rigurgito mitralico.",
+            "I reperti Doppler suggeriscono un grave rigurgito mitralico, tuttavia la dimensione normale del ventricolo sinistro non è coerente con un grave rigurgito mitralico cronico e un sovraccarico di volume del VS.",
+            "C'è un rigurgito mitralico molto grave."
+        ],
+        "Mitral Regurgitation Structural": [
+            "Lembo MV flail prominente.",
+            "Reperti coerenti con un muscolo papillare rotto.",
+            "C'è un rigurgito mitralico funzionale.",
+            "C'è un rigurgito mitralico degenerativo."
+        ],
+        "Jet flow": [
+            "Il getto di rigurgito mitralico è centrale.",
+            "Il getto di rigurgito mitralico è eccentrico e diretto posteriormente.",
+            "Il getto di rigurgito mitralico è eccentrico e diretto anteriormente.",
+            "Il getto di rigurgito mitralico è eccentrico e si diffonde lungo la parete atriale sinistra.",
+            "La vena contracta del getto di rigurgito mitralico è maggiore di 7 mm, indicando un grave rigurgito mitralico.",
+            "L'area dell'orifizio di rigurgito effettivo (EROA) derivata dall'area della superficie di isovelocità prossimale (PISA) è maggiore di 0.4 cm2, indicando un grave rigurgito mitralico.",
+            "C'è evidenza Doppler di inversione del flusso sistolico della vena polmonare, indicando un grave rigurgito mitralico.",
+            "Il getto di rigurgito mitralico riempie più del 40% dell'atrio sinistro, indicando un grave rigurgito mitralico.",
+            "Notata variazione respiratoria del flusso in ingresso della valvola mitrale."
+        ],
+        "=The": [
+            "L'area della valvola mitrale calcolata con l'equazione di continuità è di <numerical> cm2.",
+            "L'area della valvola mitrale calcolata con l'emitempo di pressione è di <numerical> cm2."
+        ],
+        "gradient":[
+            "Il gradiente transmitrale di picco è di <numerical> mmHg",
+            "Il gradiente transmitrale medio è di <numerical> mmHg"
+        ],
+        "motion":[
+            "C'è un lieve movimento anteriore sistolico della valvola mitrale.",
+            "C'è un lieve movimento sistolico della valvola mitrale",
+            "C'è un moderato movimento anteriore sistolico della valvola mitrale.",
+            "C'è un grave movimento anteriore sistolico della valvola mitrale"
+        ]
+    },
+    "Aortic Valve": {
+        "AorVel": [
+            "La velocità transaortica di picco è di <numerical> cm/s"
+        ],
+        "AorNum": [
+            "Il gradiente transaortico di picco è di <numerical> mmHg",
+            "Il gradiente transaortico medio è di <numerical> mmHg"
+        ],
+        "Aortic Valve:": [
+            "Aspetto e funzione normali della valvola aortica.",
+            "Nessuna stenosi o insufficienza aortica significativa.",
+            "Nessuna stenosi aortica.",
+            "Nessuna stenosi o insufficienza aortica",
+            "Nessuna stenosi aortica significativa.",
+            "Valvola aortica non ben visualizzata.",
+            "Valvola aortica non si apre",
+            "C'è una massa localizzata a livello della valvola aortica"
+        ],
+        "AoV Morphology": [
+            "Morfologia e funzione della valvola aortica normali senza stenosi o rigurgito.",
+            "Funzione della valvola aortica normale",
+            "Morfologia della valvola aortica normale",
+            "Morfologia e funzione normali della valvola aortica",
+            "Valvola aortica a tre lembi.",
+            "I reperti sono coerenti con una possibile valvola aortica bicuspide.",
+            "È presente una valvola aortica bicuspide.",
+            "La valvola aortica appare quadricuspide."
+        ],
+        "Thickened": [
+            "Le cuspidi aortiche appaiono lievemente ispessite.",
+            "Le cuspidi aortiche appaiono da lievemente a moderatamente ispessite",
+            "Le cuspidi aortiche appaiono moderatamente ispessite.",
+            "Le cuspidi aortiche appaiono gravemente ispessite."
+        ],
+        "Calcified": [
+            "Le cuspidi aortiche appaiono lievemente calcificate.",
+            "Le cuspidi aortiche appaiono da lievemente a moderatamente calcificate.",
+            "Le cuspidi aortiche appaiono moderatamente calcificate.",
+            "Le cuspidi aortiche appaiono gravemente calcificate."
+        ],
+        "Restricted": [
+            "Le cuspidi aortiche appaiono lievemente limitate.",
+            "Le cuspidi aortiche appaiono moderatamente limitate.",
+            "Le cuspidi aortiche appaiono gravemente limitate.",
+            "Si vede sclerosi della valvola aortica.",
+            "Sclerosi della valvola aortica senza stenosi"
+        ],
+        "Stenosis (Evidence based)": [
+            "Nessuna evidenza di stenosi della valvola aortica.",
+            "Lieve stenosi della valvola aortica.",
+            "Stenosi della valvola aortica da lieve a moderata.",
+            "Stenosi della valvola aortica moderata.",
+            "Stenosi della valvola aortica da moderata a grave.",
+            "Stenosi della valvola aortica grave.",
+            "Sclerosi senza stenosi"
+        ],
+        "Aortic Prosthesis Type": [
+            "È presente una valvola protesica meccanica a sfera e gabbia in posizione aortica.",
+            "È presente una valvola protesica meccanica a disco inclinabile a due lembi in posizione aortica.",
+            "È presente una valvola protesica meccanica a disco inclinabile singolo in posizione aortica.",
+            "È presente una valvola protesica meccanica in posizione aortica.",
+            "Una valvola protesica meccanica in posizione aortica",
+            "È presente una valvola omograft in posizione aortica.",
+            "È presente una valvola bioprotesica in posizione aortica.",
+            "Una valvola bioprotesica in posizione aortica.",
+            "È presente una valvola-stent bioprotesica in posizione aortica.",
+            "È presente una valvola aortica autograft da una procedura di Ross.",
+            "Si vede un catetere Impella e l'area di ingresso è a <numerical> cm dalla valvola aortica e non interferisce con le strutture vicine, coerente con il corretto posizionamento di Impella."
+        ],
+        "Aortic Prosthesis Well Seated": [
+            "La protesi della valvola aortica appare ben posizionata.",
+            "C'è un lieve movimento oscillante della protesi aortica.",
+            "C'è un moderato movimento oscillante della protesi aortica.",
+            "C'è un grave movimento oscillante della protesi aortica."
+        ],
+        "Aortic Prosthesis Leaflet Motion": [
+            "La protesi aortica dimostra un movimento dei lembi normale.",
+            "Il movimento del lembo protesico aortico appare lievemente limitato.",
+            "Il movimento del lembo protesico aortico appare moderatamente limitato.",
+            "Il movimento del lembo protesico aortico appare gravemente limitato."
+        ],
+        "Aortic paravalvular Regurgitation": [
+            "Nessun rigurgito aortico transvalvolare visto.",
+            "Non c'è evidenza di rigurgito aortico paravalvolare.",
+            "C'è un rigurgito aortico paravalvolare trascurabile.",
+            "C'è un lieve rigurgito aortico paravalvolare.",
+            "C'è un rigurgito aortico paravalvolare da lieve a moderato.",
+            "C'è un moderato rigurgito aortico paravalvolare.",
+            "C'è un moderato rigurgito aortico paravalvolare.",
+            "C'è un grave rigurgito aortico paravalvolare.",
+            "C'è un rigurgito aortico paravalvolare in tracce."
+        ],
+        "": [],
+        "Aortic prosthesis gradient": [
+            "La protesi aortica dimostra un gradiente transvalvolare normale per tipo e dimensione della valvola.",
+            "La protesi aortica dimostra un gradiente transvalvolare lievemente aumentato per tipo e dimensione della valvola. Ciò suggerisce una lieve stenosi aortica protesica.",
+            "La protesi aortica dimostra un gradiente transvalvolare moderatamente aumentato per tipo e dimensione della valvola. Ciò suggerisce una moderata stenosi aortica protesica.",
+            "La protesi aortica dimostra un gradiente transvalvolare gravemente aumentato per tipo e dimensione della valvola. Ciò suggerisce una grave stenosi aortica protesica."
+        ],
+        "Aortic vegetation": [
+            "Nessuna evidenza di vegetazione.",
+            "Non c'è evidenza di vegetazione della valvola aortica.",
+            "C'è una densità eco mobile sulla cuspide coronarica destra della valvola aortica coerente con una vegetazione della valvola aortica.",
+            "C'è una densità eco mobile sulla cuspide non coronarica della valvola aortica coerente con una vegetazione della valvola aortica.",
+            "C'è una densità eco mobile sulla cuspide coronarica sinistra della valvola aortica coerente con una vegetazione della valvola aortica.",
+            "Ci sono densità eco mobili su più cuspidi della valvola aortica coerenti con vegetazioni della valvola aortica.",
+            "C'è evidenza di una vegetazione sulla valvola aortica protesica.",
+            "Non è possibile escludere una vegetazione sulla valvola aortica, considerare l'ETT per un'ulteriore valutazione."
+        ],
+        "=The": [
+            "L'area della valvola aortica calcolata con l'equazione di continuità (usando Vmax) è di <numerical> cm2.",
+            "L'area della valvola aortica calcolata con l'equazione di continuità (usando VTI) è di <numerical> cm2"
+        ],
+        "Aortic Valve Gradient Qualifiers": [
+            "Il gradiente transaortico può essere sottostimato a causa di un volume sistolico basso secondario a una scarsa funzione sistolica ventricolare sinistra.",
+            "Il gradiente transaortico può essere sottostimato a causa di un angolo Doppler non ottimale.",
+            "Il gradiente transaortico può essere sottostimato a causa di un volume sistolico basso secondario a una piccola dimensione della cavità ventricolare sinistra.",
+            "Considerare l'uso di un mezzo di contrasto LV per valutare meglio la gravità della stenosi aortica.",
+            "Considerare l'uso di Dobutamina e/o un mezzo di contrasto LV per valutare meglio la gravità della stenosi aortica."
+        ],
+        "Regurgitation": [
+            "Nessun rigurgito aortico visto.",
+            "Rigurgito aortico in tracce.",
+            "Rigurgito aortico da tracce a lieve.",
+            "Lieve rigurgito della valvola aortica.",
+            "Rigurgito aortico da lieve a moderato.",
+            "Rigurgito della valvola aortica da lieve a moderato.",
+            "Rigurgito aortico da lieve a moderato a grave.",
+            "Rigurgito della valvola aortica moderato.",
+            "Rigurgito aortico da moderato a grave.",
+            "Rigurgito della valvola aortica grave.",
+            "Rigurgito aortico molto grave."
+        ],
+        "AR Jet flow": [
+            "Il getto di rigurgito aortico è centrale.",
+            "Il getto di rigurgito aortico è eccentrico e diretto anteriormente.",
+            "Il getto di rigurgito aortico è eccentrico e diretto posteriormente."
+        ],
+        "Descending Aortic Flow Reversal": [
+            "C'è un'inversione minima del flusso nell'aorta discendente, il che suggerisce che il rigurgito aortico non è grave.",
+            "C'è un'inversione moderata del flusso nell'aorta discendente, il che suggerisce che il rigurgito aortico è di gravità moderata.",
+            "C'è un'inversione del flusso olodiastolica nell'aorta discendente, il che suggerisce la presenza di un grave rigurgito aortico."
+        ],
+        "Mechanical Assist Devices": [
+            "La valvola aortica rimane chiusa o si apre in modo intermittente, coerente con una funzione LVAD normale",
+            "La valvola aortica non si apre o si apre solo in modo intermittente coerente con una funzione LVAD normale.",
+            "Si vede un catetere Impella e l'area di ingresso è a <numerical> dalla valvola aortica e non interferisce con le strutture vicine, coerente con il corretto posizionamento di Impella. C'è un flusso di colore turbolento e denso sopra la valvola aortica, coerente con la corretta posizione dell'area di efflusso",
+            "Si vede un catetere Impella attraverso la valvola aortica e si estende troppo in profondità nel ventricolo sinistro; si raccomanda il riposizionamento",
+            "Si vede un catetere Impella",
+            "Si vede un catetere Impella, tuttavia l'area di ingresso sembra essere nell'aorta o vicino alla valvola aortica; si raccomanda il riposizionamento.",
+            "Si vede un catetere Impella attraverso la valvola aortica ed è troppo vicino o impigliato nel muscolo papillare e/o nelle strutture subanulari che circondano la valvola mitrale; si raccomanda il riposizionamento."
+        ]
+    },
+    "Tricuspid Valve": {
+        "Tricuspid Valve:": [
+            "Funzione della valvola tricuspide normale",
+            "Funzione della valvola tricuspide normale (una variante normale).",
+            "Aspetto normale della valvola tricuspide.",
+            "Morfologia normale della valvola tricuspide.",
+            "Pressione sistolica ventricolare destra normale.",
+            "Morfologia e funzione normali della valvola tricuspide senza stenosi o rigurgito significativi.",
+            "Morfologia e funzione normali della valvola tricuspide senza stenosi (una variante normale).",
+            "Valvola tricuspide non ben visualizzata."
+        ],
+        "=Est": [
+            "Il gradiente di pressione RV/RA stimato è di <numerical> mmHg."
+        ],
+        "=Estimated": [
+            "La pressione sistolica RV di picco stimata è di <numerical>+CVP mmHg.",
+            "La pressione sistolica RV di picco stimata è di <numerical> +CVP mmHg.",
+            "La pressione sistolica RV di picco stimata è di <numerical> + CVP mmHg.",
+            "La pressione sistolica RV di picco stimata è di <numerical>+ CVP mmHg.",
+            "La pressione sistolica RV di picco stimata è di <numerical> mmHg.",
+            "La pressione sistolica RV di picco stimata è di <numerical>"
+        ],
+        "Thickening": [
+            "La valvola tricuspide appare lievemente ispessita.",
+            "La valvola tricuspide appare moderatamente ispessita.",
+            "La valvola tricuspide appare gravemente ispessita.",
+            "C'è un grave ispessimento, accorciamento e retrazione dei lembi tricuspidali coerente con una malattia cardiaca da carcinoide.",
+            "È presente un anello di annuloplastica tricuspidale."
+        ],
+        "TV Prosthesis": [
+            "È presente una valvola bioprotesica in posizione tricuspidale. La valvola è ben posizionata con un movimento dei lembi normale.",
+            "Una valvola bioprotesica in posizione tricuspidale",
+            "C'è una valvola bioprotesica in posizione tricuspidale. I lembi della valvola appaiono ispessiti con un movimento ridotto. Il gradiente transtricuspidale appare elevato, coerente con una valvola stenotica.",
+            "Si vede una mitraclip in posizione tricuspidale.",
+            "Si vedono due mitraclip in posizione tricuspidale."
+        ],
+        "Regurgitation": [
+            "Nessun rigurgito tricuspidale visto.",
+            "C'è un rigurgito tricuspidale in tracce/lieve",
+            "C'è un rigurgito tricuspidale trascurabile.",
+            "C'è un rigurgito tricuspidale trascurabile-lieve.",
+            "C'è un rigurgito tricuspidale da trascurabile a lieve.",
+            "C'è un lieve rigurgito tricuspidale.",
+            "C'è un rigurgito tricuspidale da lieve a moderato.",
+            "C'è un rigurgito tricuspidale moderato.",
+            "C'è un rigurgito tricuspidale da moderato a grave.",
+            "C'è un grave rigurgito tricuspidale.",
+            "C'è almeno un rigurgito tricuspidale moderato",
+            "Rigurgito tricuspidale molto grave."
+        ],
+        "Prolapse": [
+            "Lieve prolasso della valvola tricuspide che coinvolge il lembo anteriore tricuspidale.",
+            "Prolasso della valvola tricuspide da lieve a moderato che coinvolge il lembo anteriore tricuspidale.",
+            "Prolasso moderato della valvola tricuspide che coinvolge il lembo anteriore tricuspidale.",
+            "Grave prolasso della valvola tricuspide che coinvolge il lembo anteriore tricuspidale.",
+            "Lieve prolasso della valvola tricuspide che coinvolge il lembo posteriore tricuspidale",
+            "Prolasso della valvola tricuspide da lieve a moderato che coinvolge il lembo posteriore tricuspidale",
+            "Prolasso moderato della valvola tricuspide che coinvolge il lembo posteriore tricuspidale",
+            "Grave prolasso della valvola tricuspide che coinvolge il lembo posteriore tricuspidale",
+            "Lieve prolasso della valvola tricuspide che coinvolge il lembo tricuspidale settale",
+            "Prolasso della valvola tricuspide da lieve a moderato che coinvolge il lembo tricuspidale settale",
+            "Prolasso moderato della valvola tricuspide che coinvolge il lembo tricuspidale settale",
+            "Grave prolasso della valvola tricuspide che coinvolge il lembo tricuspidale settale."
+        ],
+        "Flail": [
+            "C'è flail del lembo anteriore tricuspidale, con evidenza diretta di corde rotte.",
+            "C'è flail del lembo posteriore tricuspidale, con evidenza diretta di corde rotte."
+        ],
+        "Tricuspid Vegetation": [
+            "Non c'è evidenza di vegetazione della valvola tricuspide.",
+            "Nessuna evidenza di vegetazione.",
+            "C'è una densità eco mobile su un lembo della valvola tricuspide coerente con una vegetazione della valvola tricuspide.",
+            "C'è una densità eco mobile sui lembi della valvola tricuspide coerente con una vegetazione della valvola tricuspide.",
+            "Non è possibile escludere una vegetazione del lembo della valvola tricuspide, considerare l'ETT per un'ulteriore valutazione."
+        ],
+        "Stenosis(Evidence based)": [
+            "Nessuna stenosi tricuspidale",
+            "C'è una stenosi della valvola tricuspide da lieve a moderata. Il gradiente medio è di <numerical> mmHg a bpm.",
+            "C'è una grave stenosi della valvola tricuspide. Il gradiente medio è di <numerical> mmHg a bpm.",
+            "GRAVE STENOSI DELLA VALVOLA TRICUSPIDE",
+            ". STENOSI MODERATA DELLA VALVOLA TRICUSPIDE",
+            "GRAVE STENOSI TRICUSPIDE",
+            ". MODERATA STENOSI TRICUSPIDE"
+        ]
+    },
+    "Pulmonic Valve": {
+        "Pulmonic Valve:": [
+            "Funzione della valvola polmonare normale con un rigurgito fisiologico in tracce.",
+            "Morfologia e funzione della valvola polmonare normali senza stenosi o rigurgito significativi.",
+            "Morfologia della valvola polmonare normale",
+            "Funzione della valvola polmonare normale",
+            "Aspetto normale della valvola polmonare.",
+            "Valvola polmonare non ben visualizzata.",
+            "C'è un grave ispessimento delle cuspidi della valvola polmonare coerente con una malattia cardiaca da carcinoide.",
+            "Si vede una vegetazione sulla valvola polmonare."
+        ],
+        "PV Prosthesis": [
+            "È presente una valvola bioprotesica in posizione polmonare. La valvola appare ben posizionata con un movimento dei lembi normale. Il gradiente transpolmonare è normale.",
+            "Una valvola bioprotesica in posizione polmonare",
+            "È presente una valvola-stent bioprotesica in posizione polmonare. La valvola appare ben posizionata con un movimento dei lembi normale. Il gradiente transpolmonare è normale.",
+            "È presente una valvola bioprotesica in posizione polmonare. I lembi della valvola appaiono ispessiti con un movimento dei lembi ridotto. Il gradiente transpolmonare è elevato, indicando una stenosi valvolare polmonare protesica."
+        ],
+        "Stenosis (Evidence based)": [
+            "Nessuna stenosi polmonare.",
+            "Lieve stenosi della valvola polmonare.",
+            "Stenosi della valvola polmonare da lieve a moderata.",
+            "Stenosi della valvola polmonare moderata.",
+            "Stenosi della valvola polmonare da moderata a grave.",
+            "Stenosi della valvola polmonare grave."
+        ],
+        "Regurgitation": [
+            "Nessuna evidenza di rigurgito polmonare.",
+            "C'è un rigurgito polmonare da trascurabile a lieve.",
+            "C'è un rigurgito polmonare trascurabile, fisiologico (una variante normale).",
+            "C'è un rigurgito polmonare trascurabile.",
+            "C'è un rigurgito polmonare trascurabile, fisiologico.",
+            "C'è un lieve rigurgito polmonare.",
+            "C'è un rigurgito polmonare da lieve a moderato.",
+            "C'è un rigurgito polmonare moderato.",
+            "C'è un rigurgito polmonare da moderato a grave.",
+            "C'è un grave rigurgito polmonare."
+        ],
+        "Velocity": [
+            "Il tempo di picco di velocità nel tratto di efflusso ventricolare destro > 90 ms è coerente con una pressione dell'arteria polmonare normale.",
+            "Il tempo di picco di velocità nel tratto di efflusso ventricolare destro < 90 ms è coerente con una pressione dell'arteria polmonare elevata.",
+            "Il tempo di picco di velocità nel tratto di efflusso ventricolare destro < 90 ms è coerente con una possibile pressione dell'arteria polmonare elevata."
+        ]
+    },
+    "Pericardium": {
+        "Pericardium:": [
+            "Pericardio normale senza versamento pericardico.",
+            "Pericardio normale con versamento pericardico in tracce",
+            "Non ben visualizzato."
+        ],
+        "Pericardial Effusion": [
+            "Versamento pericardico trascurabile.",
+            "Versamento pericardico piccolo.",
+            "Versamento pericardico da piccolo a moderato.",
+            "Versamento pericardico moderato.",
+            "Versamento pericardico da moderato a grande.",
+            "Versamento pericardico grande.",
+            "Il versamento pericardico è anteriore al cuore.",
+            "Il versamento pericardico è posteriore al cuore.",
+            "Il versamento pericardico è laterale al cuore.",
+            "Il versamento pericardico è circonferenziale al cuore.",
+            "Il versamento pericardico ha un aspetto anecogeno.",
+            "Il versamento pericardico ha un aspetto con filamenti di fibrina.",
+            "Il versamento pericardico ha l'aspetto di un ematoma o coagulo pericardico.",
+            "Il versamento pericardico è un versamento pericardico loculato.",
+            "Il versamento pericardico è circonferenziale al cuore e ha un aspetto con filamenti di fibrina.",
+            "Il versamento pericardico è anteriore al cuore e posteriore al cuore.",
+            "Il versamento pericardico è posteriore al cuore e laterale al cuore.",
+            "Il versamento pericardico è anteriore al cuore ed è un versamento pericardico loculato.",
+            "Il versamento pericardico è anteriore al cuore.",
+            "Il versamento pericardico è posteriore al cuore.",
+            "Il versamento pericardico è anteriore",
+            "Il versamento pericardico è posteriore",
+            "Il versamento pericardico",
+            "Grande versamento pleuro-pericardico organizzato."
+        ],
+        "Tamponade": [
+            "Nessuna evidenza ecocardiografica che suggerisca tamponamento cardiaco.",
+            "Non si può escludere il tamponamento cardiaco.",
+            "C'è evidenza di tamponamento precoce.",
+            "È presente il tamponamento cardiaco."
+        ],
+        "Tamponade Evidence:": [
+            "C'è un collasso diastolico precoce del ventricolo destro.",
+            "C'è un'inversione diastolica tardiva dell'atrio destro.",
+            "C'è una significativa variazione respirofase del flusso mitralico in entrata.",
+            "C'è una significativa variazione respirofase del flusso tricuspidale in entrata.",
+            "La vena cava inferiore è dilatata con una ridotta variazione respiratoria coerente con un'elevata pressione atriale destra.",
+            "Espansione diastolica del ventricolo destro limitata.",
+            "Materiale ecogeno visto all'interno dello spazio pericardico.",
+            "Pericardio ispessito.",
+            "Reperti coerenti con una fisiologia di costrizione pericardica."
+        ],
+        "sth": [
+            "C'è uno spazio anecogeno anteriore coerente con un cuscinetto di grasso epicardico."
+        ],
+        "Pleural Effusion": [
+            "Nessun versamento pleurico notato.",
+            "Visto un versamento pleurico destro.",
+            "Visto un versamento pleurico sinistro.",
+            "Visto un versamento pleurico bilaterale.",
+            "È presente l'ascite."
+        ]
+    },
+    "Aorta": {
+        "Aorta:": [
+            "Radice aortica normale.",
+            "Non ben visualizzata."
+        ],
+        "=Aortic": [
+            "Arco aortico <numerical> cm."
+        ],
+        "Aortic Root Size (Sinus of Valsalva)(Evidence based)": [
+            "La radice aortica è di dimensioni normali.",
+            "La radice aortica è entro i limiti superiori della normalità per dimensioni in 2D, ma visivamente appare lievemente dilatata.",
+            "C'è una lieve dilatazione della radice aortica.",
+            "C'è una dilatazione della radice aortica da lieve a moderata.",
+            "C'è una dilatazione della radice aortica moderata.",
+            "C'è una dilatazione della radice aortica da moderata a grave.",
+            "C'è una grave dilatazione della radice aortica.",
+            "Diametro dell'anello aortico <numerical> cm"
+        ],
+        "=Sinus": [
+            "Seno di Valsalva: <numerical> cm."
+        ],
+        "Sinotubular junction": [
+            "La giunzione sinotubulare aortica è di dimensioni normali.",
+            "C'è una lieve dilatazione della giunzione sinotubulare aortica.",
+            "C'è una dilatazione della giunzione sinotubulare aortica da lieve a moderata.",
+            "C'è una dilatazione della giunzione sinotubulare aortica moderata.",
+            "C'è una dilatazione della giunzione sinotubulare aortica da moderata a grave.",
+            "C'è una grave dilatazione della giunzione sinotubulare aortica."
+        ],
+        "=Sinotubular": [
+            "Giunzione sinotubulare: <numerical> cm."
+        ],
+        "Ascending Aorta": [
+            "L'aorta ascendente è di dimensioni normali.",
+            "C'è una lieve dilatazione dell'aorta ascendente.",
+            "C'è una dilatazione dell'aorta ascendente da lieve a moderata.",
+            "C'è una dilatazione dell'aorta ascendente moderata.",
+            "C'è una dilatazione dell'aorta ascendente da moderata a grave.",
+            "C'è una grave dilatazione dell'aorta ascendente."
+        ],
+        "=Ascending": [
+            "Aorta ascendente <numerical> cm."
+        ],
+        "Aortic arch": [
+            "Arco aortico di dimensioni normali.",
+            "Arco aortico dilatato."
+        ],
+        "Aortic graft": [
+            "È presente un innesto aortico alla radice dell'aorta.",
+            "È presente un innesto aortico nell'aorta ascendente.",
+            "È presente un innesto aortico alla radice e nell'aorta ascendente."
+        ],
+        "Descending Aorta": [
+            "Aorta discendente di dimensioni normali.",
+            "Aorta discendente dilatata."
+        ],
+        "=Descending": [
+            "Aorta discendente <numerical> cm."
+        ],
+        "Fibrocalcific change": [
+            "C'è un lieve cambiamento fibrocalcifico della radice aortica, coerente con l'aterosclerosi.",
+            "C'è un moderato cambiamento fibrocalcifico della radice aortica, coerente con l'aterosclerosi.",
+            "C'è un grave cambiamento fibrocalcifico della radice aortica, coerente con l'aterosclerosi.",
+            "C'è calcificazione della radice aortica."
+        ],
+        "Atheroma": [
+            "C'è un ateroma lieve (<2mm) dell'aorta toracica.",
+            "C'è un ateroma lieve (<2mm) della radice aortica o un ispessimento del sito di anastomosi chirurgica.",
+            "C'è un ateroma moderato (2-4 mm) dell'aorta toracica.",
+            "C'è un ateroma grave (>4mm) dell'aorta toracica."
+        ],
+        "=Atheroma": [
+            "Spessore dell'ateroma <numerical> mm."
+        ],
+        "Hematoma": [
+            "C'è un falso lume nell'aorta che contiene un trombo.",
+            "C'è un falso lume nell'aorta che sta comprimendo la vena cava superiore.",
+            "C'è un falso lume nell'aorta che sta comprimendo il vero lume aortico.",
+            "C'è un falso lume nell'aorta che contiene un trombo e sta comprimendo il vero lume aortico.",
+            "C'è un ematoma intramurale che si estende dalla radice aortica all'aorta ascendente.",
+            "C'è un ematoma intramurale che si estende dalla radice aortica all'aorta discendente.",
+            "C'è un ematoma intramurale che si estende dall'aorta ascendente all'arco aortico.",
+            "C'è un ematoma intramurale che si estende dall'aorta ascendente all'aorta discendente.",
+            "C'è un ematoma intramurale limitato all'aorta discendente.",
+            "C'è un'estensione di ematoma intramurale."
+        ],
+        "=Hematoma": [
+            "Dimensione dell'ematoma <numerical> cm."
+        ],
+        "Atherosclerotic Ulcer": [
+            "È presente un'ulcera aterosclerotica penetrante liscia nell'aorta discendente.",
+            "È presente un'ulcera aterosclerotica penetrante di forma irregolare nell'aorta discendente."
+        ],
+        "=Lesion": [
+            "La profondità della lesione è <numerical>."
+        ],
+        "AO dissection": [
+            "C'è una dissezione dell'aorta che si estende dalla radice aortica all'arco aortico.",
+            "C'è una dissezione dell'aorta che si estende dalla radice aortica all'aorta discendente.",
+            "C'è una dissezione dell'aorta che si estende dall'aorta ascendente all'arco aortico.",
+            "C'è una dissezione dell'aorta che si estende dall'arco aortico all'aorta discendente.",
+            "C'è una dissezione dell'aorta limitata all'aorta discendente.",
+            "Non si può escludere la dissezione aortica. Si raccomanda una modalità di imaging aortico alternativa."
+        ],
+        "Classification": [
+            "I reperti sono coerenti con una dissezione aortica di tipo A secondo Stanford.",
+            "I reperti sono coerenti con una dissezione aortica di tipo B secondo Stanford.",
+            "I reperti sono coerenti con una dissezione aortica di tipo I secondo DeBakey.",
+            "I reperti sono coerenti con una dissezione aortica di tipo II secondo DeBakey.",
+            "I reperti sono coerenti con una dissezione aortica di tipo III secondo DeBakey."
+        ]
+    },
+    "IVC": {
+        "IVC size": [
+            "La vena cava inferiore è dilatata e mostra un normale collasso respiratorio, coerente con un'elevata pressione atriale destra (8mmHg).",
+            "La vena cava inferiore è dilatata e non mostra un collasso inspiratorio, coerente con una pressione atriale destra significativamente elevata (15mmHg).",
+            "La vena cava inferiore è dilatata e dimostra più del 50% di collasso coerente con un'elevata pressione atriale destra (8 mmHg).",
+            "La vena cava inferiore è di dimensioni normali.",
+            "La vena cava inferiore è dilatata.",
+            "La vena cava inferiore è di dimensioni normali e mostra un normale collasso respiratorio, coerente con una normale pressione atriale destra (3 mmHg).",
+            "La vena cava inferiore è di dimensioni normali e mostra un normale collasso respiratorio, coerente con una normale pressione atriale destra (3 mmHg)",
+            "La vena cava inferiore è di dimensioni normali ma dimostra meno del 50% di collasso, coerente con un'elevata pressione atriale destra (8mmHg)."
+        ],
+        "diam": [
+            "Il diametro della IVC è <numerical> mm",
+            "Il diametro della IVC è <numerical> cm"
+        ],
+        "=The": [
+            "La pressione atriale destra misurata dal catetere al letto del paziente è di <numerical> mmHg.",
+            "La pressione atriale destra non ha potuto essere valutata poiché la IVC non è visualizzata."
+        ],
+        "RA Pressure Estimate": [
+            "La pressione atriale destra non ha potuto essere valutata poiché la IVC non è ben visualizzata.",
+            "La vena cava inferiore è collassata a riposo coerente con la deplezione del volume intravascolare.",
+            "La vena cava inferiore mostra un normale collasso respiratorio coerente con una normale pressione atriale destra (3 mmHg).",
+            "La vena cava inferiore dimostra meno del 50% di collasso coerente con un'elevata pressione atriale destra (8 mmHg).",
+            "La vena cava inferiore non dimostra un collasso inspiratorio, coerente con una pressione atriale destra significativamente elevata (>15 mmHg).",
+            "La vena cava inferiore non dimostra un collasso inspiratorio, coerente con una pressione atriale destra significativamente elevata (>20 mmHg).",
+            "La pressione atriale destra non ha potuto essere valutata dal collasso della IVC poiché il paziente è in ventilazione meccanica.",
+            "La vena cava inferiore è di dimensioni normali e mostra un normale collasso respiratorio, coerente con una normale pressione atriale destra (3mmHg)"
+        ]
+    },
+    "Pulmonary Artery": {
+        "Pulmonary Artery:": [
+            "Dimensioni dell'arteria polmonare normali."
+        ],
+        "PA Enlargement": [
+            "C'è un lieve ingrandimento dell'arteria polmonare.",
+            "C'è un ingrandimento dell'arteria polmonare da lieve a moderato.",
+            "C'è un ingrandimento moderato dell'arteria polmonare.",
+            "C'è un ingrandimento dell'arteria polmonare da moderato a grave.",
+            "C'è un grave ingrandimento dell'arteria polmonare.",
+            "C'è un grave ingrandimento (aneurisma) dell'arteria polmonare.",
+            "Non ben visualizzata."
+        ],
+        "=Estimated": [
+            "La pressione polmonare arteriosa stimata è di <numerical>+CVP mmHg",
+            "La pressione polmonare arteriosa stimata è di <numerical> +CVP mmHg",
+            "La pressione polmonare arteriosa stimata è di <numerical> + CVP mmHg",
+            "La pressione polmonare arteriosa stimata è di <numerical>+ CVP mmHg",
+            "La pressione polmonare arteriosa stimata è di <numerical> mmHg.",
+            "La pressione polmonare arteriosa stimata è di <numerical>",
+            "La pressione sistolica dell'arteria polmonare stimata è di <numerical> mmHg",
+            "La pressione sistolica dell'arteria polmonare stimata è di <numerical> +CVP mmHg",
+            "La pressione media dell'arteria polmonare è stata stimata in <numerical> mmHg.",
+            "La pressione media dell'arteria polmonare è stata stimata in <numerical>mmHg."
+        ],
+        "Pulmonary Artery Systolic Pressure (Evidence based)": [
+            "La pressione sistolica polmonare arteriosa è normale.",
+            "La pressione sistolica polmonare arteriosa è ai limiti superiori della normalità.",
+            "La pressione sistolica polmonare arteriosa è coerente con una lieve ipertensione polmonare.",
+            "La pressione sistolica polmonare arteriosa è coerente con una moderata ipertensione polmonare.",
+            "La pressione sistolica polmonare arteriosa è coerente con una grave ipertensione polmonare.",
+            "La pressione sistolica polmonare arteriosa è coerente con un'ipertensione polmonare critica (vicina a quella sistemica).",
+            "La pressione sistolica polmonare arteriosa non ha potuto essere determinata a causa della mancanza di un segnale Doppler di rigurgito tricuspidale.",
+            "Ripetere lo studio con contrasto salino per migliorare la valutazione del picco di velocità TR e della pressione sistolica dell'arteria polmonare.",
+            "La pressione sistolica polmonare arteriosa è coerente con un'ipertensione polmonare da lieve a moderata.",
+            "La pressione sistolica polmonare arteriosa di picco può essere sottostimata a causa dell'inadeguato involucro del getto TR."
+        ]
+    },
+    "Pulmonary Veins": {
+        "Pulmonary Veins:": [
+            "Le vene polmonari hanno un aspetto normale e l'interrogazione Doppler a impulsi mostra un flusso sistolico predominante normale.",
+            "Non è stato possibile valutare l'emodinamica della vena polmonare.",
+            "Difficile da valutare a causa di un precedente trapianto di cuore."
+        ],
+        "Doppler flow": [
+            "Il modello di flusso venoso polmonare è co-dominante sistolico e diastolico.",
+            "Il modello di flusso venoso polmonare è predominantemente diastolico, il che suggerisce un'elevata pressione atriale sinistra.",
+            "Il modello di flusso venoso polmonare è predominantemente diastolico, comunemente visto con aritmie atriali.",
+            "C'è evidenza Doppler di inversione del flusso sistolico nelle vene polmonari, il che suggerisce un grave rigurgito mitralico.",
+            "Il modello di flusso venoso polmonare è predominantemente diastolico, comunemente visto dopo un trapianto di cuore.",
+            "Il modello di flusso venoso polmonare è predominantemente diastolico, comunemente visto in caso di fibrillazione atriale.",
+            "Il modello di flusso venoso polmonare è predominantemente diastolico, il che suggerisce un'elevata pressione atriale sinistra.",
+            "Il modello di flusso venoso polmonare è predominantemente diastolico, comunemente visto dopo un trapianto di cuore.",
+            "Il modello di flusso venoso polmonare è predominantemente diastolico, comunemente visto in una persona giovane.",
+            "Il modello di flusso venoso polmonare è predominantemente diastolico.",
+            "L'interrogazione Doppler delle vene polmonari dimostra alte velocità di flusso, coerenti con la stenosi della vena polmonare.",
+            "Onda A della vena polmonare coerente con un'elevata pressione atriale sinistra.",
+            "Picco dell'onda a >35 cm/sec compatibile con un'elevata pressione atriale sinistra.",
+            "C'è una massa o un trombo nella vena polmonare XXX.",
+            "Non ben visualizzato."
+        ]
+    },
+    "Postoperative Findings": {
+        "Postoperative Findings:": [],
+        "gradient": [
+            "Il gradiente transmitralico di picco è di <numerical> mmHg",
+            "Il gradiente transmitralico medio è di <numerical> mmHg"
+        ],
+        "Mitral Valve Repair": [
+            "Si vede un anello di annuloplastica mitralica. I lembi della valvola mitralica hanno un aspetto riparato.",
+            "È presente un anello di annuloplastica mitralica.",
+            "I lembi mitralici sono in stato post-riparazione con sutura di Alfieri, con una valvola mitralica a doppio orifizio funzionante."
+        ],
+        "mitral_regurgitation": [
+            "C'è un rigurgito mitralico da trascurabile a lieve",
+            "C'è un lieve rigurgito mitralico residuo.",
+            "C'è un rigurgito mitralico residuo da lieve a moderato.",
+            "C'è un rigurgito mitralico residuo moderato.",
+            "C'è un rigurgito mitralico residuo da moderato a grave.",
+            "C'è un grave rigurgito mitralico residuo.",
+            "C'è un rigurgito mitralico residuo lieve-moderato.",
+            "C'è un rigurgito mitralico residuo moderato-grave.",
+            "C'è un rigurgito mitralico residuo."
+        ],
+        "MitraClip": [
+            "È presente una MitraClip che collega i segmenti A2 e P2 dei lembi mitralici anteriore e posteriore. Il gradiente medio è di mmHg a bpm.",
+            "Sono presenti due MitraClips che collegano i segmenti A2 e P2 dei lembi mitralici anteriore e posteriore. Il gradiente medio è di mmHg a bpm.",
+            "Si vedono tre MitraClips sui lembi anteriore e posteriore della valvola mitralica."
+        ],
+        "Mitral valve replacement": [
+            "È presente una valvola bioprotesica in posizione mitralica. La valvola è ben posizionata con un movimento dei lembi normale. Non c'è rigurgito valvolare o perivalvolare.",
+            "Una valvola-stent bioprotesica in posizione mitralica",
+            "È presente una valvola protesica meccanica a disco inclinabile a due lembi in posizione mitralica. La valvola è ben posizionata con un movimento del disco normale. C'è un rigurgito mitralico fisiologico in tracce. Non c'è rigurgito perivalvolare.",
+            "È presente una valvola-stent bioprotesica in posizione mitralica."
+        ],
+        "Aortic valve replacement": [
+            "È presente una valvola bioprotesica in posizione aortica. La valvola è ben posizionata con un movimento dei lembi normale. Non c'è rigurgito valvolare o perivalvolare.",
+            "È presente una valvola protesica meccanica a disco inclinabile a due lembi in posizione aortica. La valvola è ben posizionata con un movimento dei lembi normale. Non c'è rigurgito valvolare o perivalvolare.",
+            "Post-procedura di Ross - È presente un autoinnesto di valvola polmonare in posizione aortica. C'è un lieve rigurgito aortico residuo.",
+            "È presente una valvola-stent bioprotesica in posizione aortica. La valvola è ben posizionata con un movimento dei lembi normale. Non c'è un rigurgito aortico significativo e c'è un rigurgito perivalvolare trascurabile.",
+            "È presente una valvola-stent bioprotesica in posizione aortica.",
+            "Una valvola-stent bioprotesica in posizione aortica."
+        ],
+        "Tricuspid Valve Repair/Replacement": [
+            "È presente un anello di annuloplastica tricuspidale. C'è un rigurgito tricuspidale residuo trascurabile.",
+            "È presente una valvola bioprotesica in posizione tricuspidale. La valvola è ben posizionata con un movimento dei lembi normale. Non c'è rigurgito valvolare o perivalvolare."
+        ],
+        "Pulmonic Valve Replacement": [
+            "È presente una valvola bioprotesica in posizione polmonare. La valvola appare ben posizionata con un movimento dei lembi normale. Non c'è un rigurgito valvolare o perivalvolare significativo.",
+            "È presente una valvola-stent bioprotesica in posizione polmonare. La valvola appare ben posizionata con un movimento dei lembi normale. Non c'è un rigurgito valvolare o perivalvolare significativo.",
+            "Una valvola-stent bioprotesica in posizione polmonare"
+        ],
+        "LVAD": [
+            "Si vede una cannula di un dispositivo di assistenza ventricolare sinistro nell'apice del ventricolo sinistro."
+        ],
+        "3D Findings:": [
+            "L'ecografia 3D è stata utilizzata per valutare il ventricolo sinistro in dettaglio."
+        ]
+    }
+}

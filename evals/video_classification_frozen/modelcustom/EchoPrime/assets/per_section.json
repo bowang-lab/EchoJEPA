@@ -1,0 +1,230 @@
+{
+     "pacemaker": {
+        "section":["FNDG_Right_Atrium","FNDG_Right_Ventricle"],
+        "mode": "binary",
+        "label_sources": [
+            "pacer",
+            "pacemaker"
+        ]
+    },
+    "impella": {
+        "section":"FNDG_Left_Ventricle",
+        "mode": "binary",
+        "label_sources": [
+            "AN IMPELLA CATHETER IS SEEN"
+        ]
+    },
+    "tavr": {
+        "section":"FNDG_Aortic_Valve",
+        "mode": "binary",
+        "label_sources": [
+            "A BIOPROSTHETIC STENT-VALVE IS PRESENT IN THE AORTIC POSITION. "
+        ]
+    },
+    "mitraclip": {
+        "section":"FNDG_Mitral_Valve",
+        "mode": "binary",
+        "label_sources": [
+            "TWO MITRACLIPS ARE SEEN ON THE ANTERIOR AND POSTERIOR LEAFLETS OF THE MITRAL VALVE. ",
+            "TWO MITRACLIPS ARE NOW PRESENT ON THE ANTERIOR AND POSTERIOR MITRAL VALVE LEAFLETS. ",
+            "ONE MITRACLIP IS SEEN ON THE ANTERIOR AND POSTERIOR LEAFLETS OF THE MITRAL VALVE. "
+        ]
+    },
+    "aortic_root_dilation": {
+        "section":"FNDG_Aorta",
+        "mode":"binary",
+        "label_sources": [
+            "THERE IS MODERATE AORTIC ROOT DILATION",
+            "SEVERE AORTIC ROOT DILATION"
+        ]
+    },
+
+    "bicuspid_aov_morphology":{
+        "section":"FNDG_Aortic_Valve",
+        "mode":"binary",
+        "label_sources": ["FINDINGS ARE CONSISTENT WITH A POSSIBLE BICUSPID AORTIC VALVE.",
+                        "A BICUSPID AORTIC VALVE IS PRESENT."
+                        ] 
+    },
+
+    "aortic_stenosis":{
+        "section":"FNDG_Aortic_Valve",
+        "mode":"binary",
+        "label_sources":[". MODERATE AORTIC VALVE STENOSIS",
+                         "SEVERE AORTIC VALVE STENOSIS",
+                         ". MODERATE AORTIC STENOSIS",
+                         "SEVERE AORTIC STENOSIS"
+                        ]
+    },
+    "tricuspid_stenosis":{
+        "section":"FNDG_Tricuspid_Valve",
+        "mode":"binary",
+        "label_sources":["SEVERE TRICUSPID VALVE STENOSIS",
+                        ". MODERATE TRICUSPID VALVE STENOSIS",
+                        "SEVERE TRICUSPID STENOSIS",
+                        ". MODERATE TRICUSPID STENOSIS"]
+    },
+    "aortic_regurgitation":{
+        "section":"FNDG_Aortic_Valve",
+        "mode":"binary",
+        "label_sources":[
+            ". MODERATE AORTIC VALVE REGURGITATION",
+            ". MODERATE AORTIC REGURGITATION",
+            "SEVERE AORTIC VALVE REGURGITATION.",
+            "SEVERE AORTIC REGURGITATION."
+        ]
+    },
+    "dilated_ivc":{
+        "section":"FNDG_IVC",
+        "mode":"binary",
+        "label_sources":["THE INFERIOR VENA CAVA IS DILATED.",
+                         "The IVC diameter is 2",
+                         "The IVC diameter is 3"
+                        ]
+    },
+    "left_atrium_dilation": {
+        "section":"FNDG_Left_Atrium",
+        "mode": "binary",
+        "label_sources": [
+            ". MODERATELY DILATED LEFT ATRIUM",
+            "SEVERELY DILATED LEFT ATRIUM"
+        ]
+    },
+    "ejection_fraction": {
+        "section":"FNDG_Left_Ventricle",
+        "mode": "regression",
+        "label_sources": [
+            "THE LEFT VENTRICULAR EJECTION FRACTION IS ESTIMATED TO BE <#>% ",
+            "LV EJECTION FRACTION IS <#>%. ",
+            "LV Ejection Fraction is <#> %.",
+            "LV Ejection Fraction is <#>",
+            "Left ventricular systolic function is normal with an estimated ejection fraction of <#> %",
+            "Left ventricular systolic function is normal with an estimated ejection fraction of <#>%",
+            "Left ventricular systolic function is normal, with an estimated ejection fraction of <#> %.",
+            "Left ventricular systolic function is low-normal with an estimated ejection fraction of <#>%.",
+            "Left ventricular systolic function is mildly impaired with an estimated ejection fraction of <#>",
+            "Left ventricular systolic function is moderately impaired with an estimated ejection fraction of <#>.",
+            "Left ventricular systolic function is severely impaired with an estimated ejection fraction of <#>",
+            "Left ventricular systolic function was normal, with an ejection fraction of <#> %",
+            "Ejection Fraction calculated by Simpson`s Biplane method is <#> %."
+
+        ],
+        "range": [0, 100]
+    },
+    "mitral_annular_calcification":{
+        "section":"FNDG_Mitral_Valve",
+        "mode":"binary",
+        "label_sources":[ ". MODERATE MITRAL ANNULAR CALCIFICATION.",
+                          "SEVERE MITRAL ANNULAR CALCIFICATION."]
+
+    },
+    "mitral_stenosis":{
+        "section":"FNDG_Mitral_Valve",
+        "mode":"binary",
+        "label_sources":[
+            ". MODERATE MITRAL STENOSIS",
+            "SEVERE MITRAL STENOSIS",
+            ". MODERATE MITRAL VALVE STENOSIS",
+            "SEVERE MITRAL VALVE STENOSIS"
+        ]
+    },
+    "mitral_regurgitation":{
+        "section":"FNDG_Mitral_Valve",
+        "mode":"binary",
+        "label_sources":[
+            ". MODERATE MITRAL VALVE REGURGITATION",
+            ". MODERATE MITRAL REGURGITATION",
+            "SEVERE MITRAL REGURGITATION",
+            "SEVERE MITRAL VALVE REGURGITATION"
+        ]
+    },
+    "pericardial_effusion": {
+        "section":"FNDG_Pericardium",
+        "mode": "binary",
+        "label_sources": [
+            "MODERATE PERICARDIAL EFFUSION",
+            "MODERATE TO LARGE PERICARDIAL EFFUSION",
+            "LARGE PERICARDIAL EFFUSION",
+            "EVIDENCE OF EARLY TAMPONADE",
+            "CARDIAC TAMPONADE IS NOW PRESENT",
+            "CARDIAC TAMPONADE IS PRESENT"
+        ]
+    }, 
+    "pulmonary_artery_pressure_continuous": {
+        "section":"FNDG_Pulmonary_Artery",
+        "mode": "regression",
+        "label_sources": [
+            "ESTIMATED PA SYSTOLIC PRESSURE IS <#>MMHG. ",
+            "ESTIMATED PA PRESSURE IS <#>MMHG. ",
+            "PA PEAK PRESSURE IS <#>MMHG. "
+        ],
+        "range": [0, 100]
+    },
+    "right_atrium_dilation": {
+        "section":"FNDG_Right_Atrium",
+        "mode": "binary",
+        "label_sources": [
+            ". MODERATELY DILATED RIGHT ATRIUM",
+            "SEVERELY DILATED RIGHT ATRIUM"
+        ]
+    },
+    "rv_systolic_function_depressed":{
+        "section":"FNDG_Right_Ventricle",
+        "mode":"binary",
+        "label_sources":[
+            ". Moderately depressed right ventricular systolic function.",
+            "Severely depressed right ventricular systolic function.",
+            "There is severely depressed RV systolic function in a pattern that spares the RV apex (McConnell`s sign), a finding that suggests acute right ventricular pressure overload."
+        ]
+    },
+    "right_ventricle_dilation": {
+        "section":"FNDG_Right_Ventricle",
+        "mode": "binary",
+        "label_sources": [
+            ". MODERATELY DILATED RIGHT VENTRICLE",
+            "SEVERELY DILATED RIGHT VENTRICLE"
+        ]
+    },
+    "tricuspid_valve_regurgitation":{
+        "section":"FNDG_Tricuspid_Valve",
+        "mode":"binary",
+        "label_sources":[
+            ". MODERATE TRICUSPID REGURGITATION",
+            ". MODERATE TRICUSPID VALVE REGURGITATION",
+            "SEVERE TRICUSPID REGURGITATION",
+            "SEVERE TRICUSPID VALVE REGURGITATION"
+        ]
+    },
+    "pulmonic_valve_regurgitation":{
+        "section":"FNDG_Pulmonic_Valve",
+        "mode":"binary",
+        "label_sources":[
+            ". MODERATE PULMONIC VALVE REGURGITATION",
+            ". MODERATE PULMONIC REGURGITATION",
+            "SEVERE PULMONIC VALVE REGURGITATION.",
+            "SEVERE PULMONIC REGURGITATION."
+        ]
+    },
+    "elevated_left_atrial_pressure":{
+        "section":"FNDG_Pulmonary_Veins",
+        "mode":"binary",
+        "label_sources":[
+            "elevated left atrial pressure"
+        ]
+    },
+    "wall_motion_hypokinesis":{
+        "section":"FNDG_Resting_Segmental_Wall_Motion_Analysis",
+        "mode":"binary",
+        "label_sources":[
+            "hypokinesis"
+        ]
+    },
+    "atrial_septum_hypertrophy":{
+        "section":"FNDG_Atrial_Septum",
+        "mode":"binary",
+        "label_sources":[
+            "There is moderate lipomatous hypertrophy of the atrial septum.",
+            "There is severe lipomatous hypertrophy of the atrial septum."
+        ]
+    }
+}

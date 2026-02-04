@@ -1,3 +1,4 @@
+# src/models/utils/modules.py
 # Copyright (c) Meta Platforms, Inc. and affiliates.
 #
 # This source code is licensed under the MIT license found in the
@@ -36,14 +37,9 @@ def rotate_queries_or_keys(x, pos):
     # -- build rotation matrix and apply
     emb_sin = freq.sin()  # (..., N, D/2)
     emb_cos = freq.cos()  # (..., N, D/2)
-    # -- NOTE: This expansion has a subtle bug where frequencies are duplicated across the vector pair.
-    # -- Fixing the bug would break compatibility with the pretrained model, but the fix can be applied by commenting
-    # -- out the two lines below, and uncommenting the following two lines.
-    # -- Thanks to @echosprint, original PR: https://github.com/facebookresearch/vjepa2/pull/15
+
     emb_sin = emb_sin.squeeze(-1).repeat(1, 1, 1, 2)
     emb_cos = emb_cos.squeeze(-1).repeat(1, 1, 1, 2)
-    # emb_sin = emb_sin.repeat_interleave(2, dim=-1)  # (..., N, D)
-    # emb_cos = emb_cos.repeat_interleave(2, dim=-1)  # (..., N, D)
 
     # --
     y = x.unflatten(-1, (-1, 2))
@@ -576,27 +572,41 @@ class CrossAttention(nn.Module):
         self.scale = head_dim**-0.5
         self.q = nn.Linear(dim, dim, bias=qkv_bias)
         self.kv = nn.Linear(dim, int(dim * 2), bias=qkv_bias)
-        # self.proj = nn.Linear(dim, dim)
         self.use_sdpa = use_sdpa
 
-    def forward(self, q, x):
-        B, n, C = q.shape
-        q = self.q(q).reshape(B, n, self.num_heads, C // self.num_heads).permute(0, 2, 1, 3)
+    def forward(self, q, x, attn_mask: torch.Tensor | None = None):
+        """
+        q: [B, Q, D], x: [B, N, D]
+        attn_mask: [B, N] boolean or byte (True = ignore)  OR
+                   broadcastable to [B, 1, 1, N]
+        """
+        B, Q, C = q.shape
+        q = self.q(q).reshape(B, Q, self.num_heads, C // self.num_heads).permute(0, 2, 1, 3)
 
         B, N, C = x.shape
         kv = self.kv(x).reshape(B, N, 2, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
-        k, v = kv[0], kv[1]  # (batch_size, num_heads, seq_len, feature_dim_per_head)
+        k, v = kv[0], kv[1]  # [B, h, N, d]
+
+        # Build additive mask for SDPA: 0 for keep, -inf for masked
+        additive = None
+        if attn_mask is not None:
+            # expect [B, N] or broadcastable → [B,1,1,N]
+            m = attn_mask[:, None, None, :].to(q.dtype)
+            additive = m * torch.finfo(q.dtype).min
 
         if self.use_sdpa:
             with torch.backends.cuda.sdp_kernel():
-                q = F.scaled_dot_product_attention(q, k, v)
+                q = F.scaled_dot_product_attention(q, k, v, attn_mask=additive, dropout_p=0.0, is_causal=False)
         else:
             xattn = (q @ k.transpose(-2, -1)) * self.scale
-            xattn = xattn.softmax(dim=-1)  # (batch_size, num_heads, query_len, seq_len)
+            if additive is not None:
+                xattn = xattn + additive
+            xattn = xattn.softmax(dim=-1)
             q = xattn @ v
 
-        q = q.transpose(1, 2).reshape(B, n, C)
+        q = q.transpose(1, 2).reshape(B, Q, C)
         return q
+
 
 
 class CrossAttentionBlock(nn.Module):
@@ -608,8 +618,9 @@ class CrossAttentionBlock(nn.Module):
         mlp_hidden_dim = int(dim * mlp_ratio)
         self.mlp = MLP(in_features=dim, hidden_features=mlp_hidden_dim, act_layer=act_layer)
 
-    def forward(self, q, x):
-        y = self.xattn(q, self.norm1(x))
+    def forward(self, q, x, attn_mask: torch.Tensor | None = None):
+        y = self.xattn(q, self.norm1(x), attn_mask=attn_mask)  # <<< pass mask
         q = q + y
         q = q + self.mlp(self.norm2(q))
         return q
+

@@ -1,0 +1,17 @@
+,feature,threshold
+0,pacemaker,0.1
+1,impella,0.16
+2,tavr,0.76
+3,mitraclip,0.2
+4,aortic_stenosis,0.78
+5,aortic_regurgitation,0.16
+6,dilated_ivc,0.32
+7,left_atrium_dilation,0.16
+8,mitral_annular_calcification,0.32
+9,mitral_regurgitation,0.06
+10,rv_systolic_function_depressed,0.04
+11,right_ventricle_dilation,0.14
+12,tricuspid_valve_regurgitation,0.26
+13,elevated_left_atrial_pressure,0.3
+14,wall_motion_hypokinesis,0.24
+15,atrial_septum_hypertrophy,1.06

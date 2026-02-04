@@ -1,0 +1,9 @@
+ipywidgets==8.1.2
+mysql-connector-python==8.0.31
+opencv-python-headless==4.5.5.64
+polars==0.15.14
+pydicom==2.3.1
+pytorch-lightning==2.2.0.post0
+PyWavelets==1.4.1
+wandb==0.16.3
+transformers==4.57.0

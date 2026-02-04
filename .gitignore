@@ -1,0 +1,21 @@
+
+# Python/Jupyter noise
+__pycache__/
+*.py[cod]
+*.class
+.ipynb_checkpoints/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+__MACOSX/
+
+# Large Data & Medical Images
+model_data/
+*.dcm
+*.pth
+*.pt
+*.zip
+*.tar
+*.gz

@@ -30,6 +30,7 @@ def init_data(
     duration=None,
     fps=None,
     num_clips=1,
+    num_clips_per_video=1,  # NEW parameter  
     random_clip_sampling=True,
     allow_clip_overlap=False,
     filter_short_videos=False,
@@ -38,6 +39,10 @@ def init_data(
     persistent_workers=False,
     deterministic=True,
     log_dir=None,
+    img_size=336,
+    miss_augment_prob=0.0,          # <<< NEW
+    min_present=1,                  # <<< NEW
+    split_name="train"
 ):
     if data.lower() == "imagenet":
         from src.datasets.imagenet1k import make_imagenet1k
@@ -85,6 +90,35 @@ def init_data(
             rank=rank,
             deterministic=deterministic,
             log_dir=log_dir,
+        )
+
+    elif data.lower() == "videogroupdataset":  
+        from src.datasets.video_group_dataset import make_videogroupdataset  
+          
+        dataset, data_loader, dist_sampler = make_videogroupdataset(  
+            data_paths=root_path,  
+            batch_size=batch_size,  
+            group_size=num_clips,  # num_segments from config  
+            frames_per_clip=clip_len,  
+            frame_step=frame_sample_rate,  
+            num_clips_per_video=num_clips_per_video,  # NEW  
+            random_clip_sampling=random_clip_sampling,  
+            allow_clip_overlap=allow_clip_overlap,  
+            shared_transform=shared_transform,  
+            transform=transform,  
+            collator=collator,  
+            num_workers=num_workers,  
+            pin_mem=pin_mem,  
+            persistent_workers=persistent_workers,  
+            world_size=world_size,  
+            rank=rank,  
+            deterministic=deterministic,  
+            log_dir=log_dir,
+            img_size=img_size,                # <<< add this line
+            training=training,                 # <<< NEW
+            miss_augment_prob=miss_augment_prob,          # <<< NEW
+            min_present=min_present,                  # <<< NEW
+            split_name=split_name
         )
 
     return (data_loader, dist_sampler)

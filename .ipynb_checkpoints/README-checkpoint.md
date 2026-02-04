@@ -2,23 +2,16 @@
 
 Alif Munim, Adibvafa Fallahpour, Teodora Szasz, Ahmadreza Attarpour, River Jiang, Brana Sooriyakanthan, Maala Sooriyakanthan, Heather Whitney, Jeremy Slivnick, Barry Rubin, Wendy Tsang, Bo Wang
 
-*Core Team
-
 [[`Paper`]()] [[`Blog`]()] [[`BibTex`](#Citation)]
 
-Official Pytorch codebase for V-JEPA 2 and V-JEPA 2-AC.
+Official Pytorch codebase for EchoJEPA.
 
-V-JEPA 2 is a self-supervised approach to training video encoders, using internet-scale video data, that attains state-of-the-art performance on motion understanding and human action anticipation tasks. V-JEPA 2-AC is a latent action-conditioned world model post-trained from V-JEPA 2 (using a small amount of robot trajectory interaction data) that solves robot manipulation tasks without environment-specific data collection or task-specific training or calibration.
+Foundation models for echocardiography promise to reduce annotation burden and improve diagnostic consistency by learning generalizable representations from large unlabeled video archives. However, current approaches fail to disentangle anatomical signal from the stochastic speckle and acquisition artifacts that dominate ultrasound imagery. We present EchoJEPA, a foundation model for echocardiography trained on 18 million echocardiograms across 300K patients, the largest pretraining corpus for this modality to date. We also introduce a novel multi-view probing framework with factorized stream embeddings that standardizes evaluation under frozen backbones. Compared to prior methods, EchoJEPA reduces left ventricular ejection fraction estimation error by 19% and achieves 87.4% view classification accuracy. EchoJEPA exhibits strong sample efficiency, reaching 78.6% accuracy with only 1% of labeled data versus 42.1% for the best baseline trained on 100%. Under acoustic perturbations, EchoJEPA degrades by only 2.3% compared to 16.8% for the next best model, and transfers zero-shot to pediatric patients with 15% lower error than the next best model, outperforming all fine-tuned baselines. These results establish latent prediction as a superior paradigm for ultrasound foundation models.
 
 <p align="center">
-	<img src="assets/flowchart.png" width=100%>
+	<img src="assets/echo_fig1a.png" width=100%>
 </p>
 
-<!---
-## Updates
-
-* **[Jun-6-25]:** V-JEPA 2 is released. [[`Blog`](https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks)]
---->
 
 ## EchoJEPA 
 
@@ -311,6 +304,11 @@ V-JEPA 2 is a self-supervised approach to training video encoders, using interne
 
 ### EchoJEPA
 
+<p align="center">
+	<img src="assets/echo_attention.png" width=100%>
+</p>
+
+
 ## Getting Started
 
 ### Setup
@@ -324,6 +322,11 @@ pip install .  # or `pip install -e .` for development mode
 ### Probe-based evaluation
 
 Probe-based evaluation consists in training an attentive probe on top of frozen V-JEPA 2 features. We provide training scripts for training your own probes, and checkpoints to run inference directly.
+
+<p align="center">
+	<img src="assets/echo_fig2.png" width=100%>
+</p>
+
 
 #### Training probes
 

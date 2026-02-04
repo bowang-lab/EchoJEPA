@@ -2,8 +2,6 @@
 
 Alif Munim, Adibvafa Fallahpour, Teodora Szasz, Ahmadreza Attarpour, River Jiang, Brana Sooriyakanthan, Maala Sooriyakanthan, Heather Whitney, Jeremy Slivnick, Barry Rubin, Wendy Tsang, Bo Wang
 
-*Core Team
-
 [[`Paper`]()] [[`Blog`]()] [[`BibTex`](#Citation)]
 
 Official Pytorch codebase for EchoJEPA.

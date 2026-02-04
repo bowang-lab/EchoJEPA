@@ -1,0 +1,4 @@
+model_data/
+.ipynb_checkpoints/
+*.pyc
+saved_embeddings/*

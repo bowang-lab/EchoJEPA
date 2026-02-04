@@ -1,0 +1,340 @@
+import os
+import shutil
+
+import argparse
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import torch
+import torchvision
+import torch.distributed as dist
+
+from sklearn import metrics
+from sklearn.utils import compute_class_weight
+
+from dataset import EchoNetPediatricDataset
+from ddp_utils import is_main_process, setup_for_distributed
+from models import FrameTransformer, MultiTaskModel
+from utils import Task, set_seed, worker_init_fn, val_worker_init_fn, train_echonetpediatric, validate_echonetpediatric, evaluate_echonetpediatric
+
+def init_distributed():
+    dist_url = 'env://'  # default
+
+    rank = int(os.environ['RANK'])
+    world_size = int(os.environ['WORLD_SIZE'])
+    local_rank = int(os.environ['LOCAL_RANK'])
+    dist.init_process_group(
+        backend='nccl',
+        init_method=dist_url,
+        world_size=world_size,
+        rank=rank
+    )
+
+    # Make .cuda() calls work properly
+    torch.cuda.set_device(local_rank)
+
+    # Synchronize processes before proceeding
+    dist.barrier()
+    setup_for_distributed(rank == 0)
+    
+def main(args):
+    # Set up model directory
+    if args.model_dir_path == '':
+        # Create model name
+        MODEL_NAME = f'{args.model_name}'
+        MODEL_NAME += f'_drp-{args.transformer_dropout}' if args.transformer_dropout > 0 else ''
+        MODEL_NAME += f'_{args.arch}' if args.arch != '' else ''
+        MODEL_NAME += f'_{args.pooling}-pooling' if args.model_name == 'frame_transformer' else ''
+        MODEL_NAME += '_pretr' if not args.rand_init else '_rand'
+        MODEL_NAME += f'_{args.normalization}-norm' if args.normalization != '' else ''
+        MODEL_NAME += '_aug' if args.augment else ''
+        MODEL_NAME += f'_clip-len-{args.clip_len}'
+        MODEL_NAME += f'_num-clips-{args.num_clips}'
+        MODEL_NAME += '_cw' if args.use_class_weights else ''
+        MODEL_NAME += f'_lr-{args.lr}'
+        MODEL_NAME += f'_cos-anneal_T0-{args.T_0}_etamin-{args.eta_min}' if args.cos_anneal else ''
+        MODEL_NAME += f'_{args.max_epochs}ep'
+        MODEL_NAME += f'_patience-{args.patience}' if args.patience != 1e4 else ''
+        MODEL_NAME += f'_bs-{args.batch_size}'
+        MODEL_NAME += f'_adamw' if args.adamw else ''
+        MODEL_NAME += f'_wd-{args.wd}' if args.wd != 0. else ''
+        MODEL_NAME += f'_drp-{args.fc_dropout}'
+        MODEL_NAME += f'_seed-{args.seed}' if args.seed != 0 else ''
+        MODEL_NAME += '_amp' if args.amp else ''
+        MODEL_NAME += '_echonetpediatric'
+
+        model_dir = os.path.join(args.output_dir, MODEL_NAME)
+    else:
+        assert os.path.isdir(args.model_dir_path), f'--model_dir_path {args.model_dir_path} does not exist'
+
+        model_dir = args.model_dir_path + '_echonetpediatric'
+        args.output_dir = os.path.abspath(os.path.join(model_dir, '..'))
+
+    if is_main_process():
+        if not args.resume:
+            # Create output directory for model (and delete if already exists)
+            if not os.path.exists(args.output_dir):
+                os.mkdir(args.output_dir)
+
+            if os.path.isdir(model_dir):
+                shutil.rmtree(model_dir)
+            os.mkdir(model_dir)
+            os.mkdir(os.path.join(model_dir, 'history_plots'))
+            os.mkdir(os.path.join(model_dir, 'results_plots'))
+            os.mkdir(os.path.join(model_dir, 'preds'))
+
+    # Set all seeds for reproducibility
+    set_seed(args.seed)
+
+    # Get task information and labels
+    print('Preparing multi-task labels...')
+    a4c_data_df = pd.read_csv(os.path.join(args.data_dir, 'A4C', 'FileList.csv'))
+    a4c_data_df['mrn'] = a4c_data_df['FileName'].apply(lambda x: x.split('-')[0])
+    a4c_data_df['acc_num'] = a4c_data_df['FileName'].apply(lambda x: x.split('-')[1])
+    a4c_data_df['view'] = 'a4c'
+    psax_data_df = pd.read_csv(os.path.join(args.data_dir, 'PSAX', 'FileList.csv'))
+    psax_data_df['mrn'] = psax_data_df['FileName'].apply(lambda x: x.split('-')[0])
+    psax_data_df['acc_num'] = psax_data_df['FileName'].apply(lambda x: x.split('-')[1])
+    psax_data_df['view'] = 'psax'
+    data_df = pd.concat([a4c_data_df, psax_data_df], axis=0).reset_index(drop=True)
+    data_df = data_df.rename(columns={'Split': 'fold'})
+
+    tasks = np.load('/mnt/nfs_echo_yale/010624_multiview_preprocessed/041824_tasks.npy', allow_pickle=True)
+    tasks = [t for t in tasks if t.task_name == 'EF']
+
+    # If resuming training, start from last fold in progress. Otherwise, start from fold 0
+    start_fold = 0
+    if args.resume:
+        for d in os.listdir(model_dir):
+            if 'fold' in d:
+                fold_files = os.listdir(os.path.join(model_dir, d))
+                if np.any('summary.txt' in fold_files):
+                    start_fold += 1
+
+    for fold in range(start_fold, 10):
+        if is_main_process():
+            if os.path.isdir(os.path.join(model_dir, f'fold_{fold}')):
+                shutil.rmtree(os.path.join(model_dir, f'fold_{fold}'))
+            os.mkdir(os.path.join(model_dir, f'fold_{fold}'))
+            os.mkdir(os.path.join(model_dir, f'fold_{fold}', 'history_plots'))
+            os.mkdir(os.path.join(model_dir, f'fold_{fold}', 'results_plots'))
+            os.mkdir(os.path.join(model_dir, f'fold_{fold}', 'preds'))
+
+        # Create datasets
+        train_dataset     = EchoNetPediatricDataset(data_dir=args.data_dir, data_df=data_df, tasks=tasks, split='train', fold=fold, clip_len=args.clip_len, sampling_rate=args.sampling_rate, num_clips=args.num_clips, augment=self.augment, normalization=args.normalization)
+        val_dataset       = EchoNetPediatricDataset(data_dir=args.data_dir, data_df=data_df, tasks=tasks, split='val', fold=fold, clip_len=args.clip_len, sampling_rate=args.sampling_rate, num_clips=args.num_clips, augment=False, normalization=args.normalization)
+        test_dataset      = EchoNetPediatricDataset(data_dir=args.data_dir, data_df=data_df, tasks=tasks, split='test', fold=fold, clip_len=args.clip_len, sampling_rate=args.sampling_rate, num_clips=args.num_clips, augment=False, normalization=args.normalization)
+
+        # Create loaders
+        train_loader     = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=False, sampler=torch.utils.data.distributed.DistributedSampler(dataset=train_dataset, shuffle=True), num_workers=16, worker_init_fn=worker_init_fn)
+        val_loader       = torch.utils.data.DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, sampler=torch.utils.data.distributed.DistributedSampler(dataset=val_dataset, shuffle=False), num_workers=8, worker_init_fn=val_worker_init_fn)
+        test_loader      = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, sampler=torch.utils.data.distributed.DistributedSampler(dataset=test_dataset, shuffle=False), num_workers=8, worker_init_fn=val_worker_init_fn)
+
+        # Create csv documenting training history
+        columns = ['epoch', 'phase', 'loss', 'mean_auroc_r2', 'mean_classification_auroc', 'mean_classification_ap', 'mean_regression_r2', 'mean_regression_mse', 'mean_regression_mae']
+        for task in tasks:
+            name = task.task_name
+            columns.append(f'{name}_loss')
+
+            if task.task_type == 'regression':
+                columns.append(f'{name}_r2')
+                columns.append(f'{name}_mse')
+                columns.append(f'{name}_mae')
+            elif task.task_type == 'multi-class_classification':
+                columns.append(f'{name}_mean_auroc')
+                columns.append(f'{name}_mean_ap')
+                for class_name in task.class_names:
+                    columns.append(f'{name}_{class_name}_auroc')
+                    columns.append(f'{name}_{class_name}_ap')
+            else:
+                columns.append(f'{name}_auroc')
+                columns.append(f'{name}_ap')
+
+            if is_main_process():
+                # Create subdirectories for each task
+                os.mkdir(os.path.join(model_dir, f'fold_{fold}', 'history_plots', name))
+                os.mkdir(os.path.join(model_dir, f'fold_{fold}', 'results_plots', name))
+                os.mkdir(os.path.join(model_dir, f'fold_{fold}', 'preds', name))
+        history = pd.DataFrame(columns=columns)
+        if is_main_process():
+            history.to_csv(os.path.join(model_dir, f'fold_{fold}', 'history.csv'), index=False)
+
+        # Initialize encoder
+        if args.model_name == '3dresnet18':
+            encoder = torchvision.models.video.r3d_18(pretrained=not args.rand_init)
+            encoder_dim = encoder.fc.in_features
+            encoder.fc = torch.nn.Identity()            
+        elif args.model_name == 'frame_transformer':
+            encoder = FrameTransformer(arch=args.arch, n_heads=args.n_heads, n_layers=args.n_layers, transformer_dropout=args.transformer_dropout, pooling=args.pooling, clip_len=args.clip_len)
+            encoder_dim = encoder.encoder.n_features
+
+        # Initialize multi-task model
+        model = MultiTaskModel(encoder=encoder, encoder_dim=encoder_dim, tasks=train_dataset.tasks, fc_dropout=args.fc_dropout)  # important to pass training set task info (with mean values computed from training data)
+        print(model)
+
+        # Transfer pretrained weights
+        if args.model_dir_path != '':
+            chkpts = [f for f in os.listdir(args.model_dir_path) if f.endswith('.pt')]
+            idx = np.argmax([int(f.split('.')[0].split('-')[-1]) for f in chkpts])
+            chkpt = torch.load(os.path.join(args.model_dir_path, chkpts[idx]), map_location='cpu')
+
+            msg = model.load_state_dict(chkpt['weights'], strict=False)
+            print(f'Loading best weights...')
+            print(msg)
+
+        # Convert BatchNorm to SyncBatchNorm for DDP training
+        model = torch.nn.SyncBatchNorm.convert_sync_batchnorm(model)
+
+        # Transfer model to GPU and convert to DDP
+        local_rank = int(os.environ['LOCAL_RANK'])
+        model = torch.nn.parallel.DistributedDataParallel(model.cuda(), device_ids=[local_rank], find_unused_parameters=True)
+
+        # Define loss functions (MSE for regression tasks and cross-entropy for classification tasks)
+        if args.use_class_weights:
+            loss_fxns = {}
+            for task in tasks:
+                if task.task_type == 'regression':
+                    loss_fxns[task.task_name] = torch.nn.MSELoss()
+                else:
+                    class_weights = compute_class_weight(class_weight='balanced', classes=np.sort(train_dataset.data_df[task.task_name].dropna().unique()), y=train_dataset.data_df[task.task_name].dropna().values)
+
+                    if task.task_type == 'multi-class_classification':
+                        if class_weights.size == 1:
+                            loss_fxns[task.task_name] = torch.nn.CrossEntropyLoss()
+                        else:
+                            class_weights_tensor = torch.Tensor(class_weights).cuda()
+                            loss_fxns[task.task_name] = torch.nn.CrossEntropyLoss(weight=class_weights_tensor)
+                    else:
+                        if class_weights.size == 1:
+                            loss_fxns[task.task_name] = torch.nn.BCEWithLogitsLoss()
+                        else:
+                            class_weights_tensor = torch.Tensor([(class_weights / class_weights.min())[1]]).cuda()
+                            loss_fxns[task.task_name] = torch.nn.BCEWithLogitsLoss(pos_weight=class_weights_tensor)
+        else:
+            loss_fxns = {}
+            for task in tasks:
+                if task.task_type == 'multi-class_classification':
+                    loss_fxns[task.task_name] = torch.nn.CrossEntropyLoss()
+                elif task.task_type == 'binary_classification':
+                    loss_fxns[task.task_name] = torch.nn.BCEWithLogitsLoss()
+                else:
+                    loss_fxns[task.task_name] = torch.nn.MSELoss()
+
+        # Initialize optimizer
+        if args.adamw:
+            optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.wd)
+        else:
+            optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.wd)
+            
+        # Initialize learning rate scheduler
+        if args.cos_anneal:
+            scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.max_epochs, eta_min=args.eta_min)
+        else:
+            scheduler = None
+
+        # Train with early stopping by validation loss
+        epoch = 1
+        early_stopping_dict = {'best_loss': 1e8, 'epochs_no_improve': 0}
+        best_model_wts = None
+
+        if args.model_dir_path != '':
+            try:
+                del chkpt
+            except:
+                pass
+
+        # Training loop
+        while epoch <= args.max_epochs and early_stopping_dict['epochs_no_improve'] < args.patience:
+            history = train_echonetpediatric(model=model, tasks=tasks, fold=fold, loss_fxns=loss_fxns, optimizer=optimizer, data_loader=train_loader, history=history, epoch=epoch, model_dir=model_dir, amp=args.amp)
+            history, early_stopping_dict, best_model_wts = validate_echonetpediatric(model=model, tasks=tasks, fold=fold, loss_fxns=loss_fxns, optimizer=optimizer, data_loader=val_loader, history=history, epoch=epoch, model_dir=model_dir, early_stopping_dict=early_stopping_dict, best_model_wts=best_model_wts, amp=args.amp, scheduler=scheduler)
+
+            epoch += 1
+        
+        # Evaluate on held-out fold
+        evaluate_echonetpediatric(model=model, tasks=tasks, loss_fxns=loss_fxns, data_loader=test_loader, split='test', fold=fold, history=history, model_dir=model_dir, weights=best_model_wts, amp=args.amp, plot_history=True)
+
+        del model
+
+    # Evaluate across the union of all 10 test folds using held-out predictions
+    for task in tasks:
+        study_pred_df = pd.concat([pd.read_csv(os.path.join(model_dir, f'fold_{fold}', 'preds', 'EF', 'echonet-pediatric_test_EF_preds.csv')) for fold in range(10)], axis=0)
+        study_pred_df['yhat'] = study_pred_df['yhat'].apply(lambda x: eval(x)[0]).astype(float)
+
+        out_str = ''
+        out_str += f'--- {task.task_name} [{task.task_type}] (N={study_pred_df.shape[0]}) ---\n'
+
+        y = study_pred_df['y'].values
+        yhat = study_pred_df['yhat'].values
+
+        # Compute regression metrics
+        r2 = metrics.r2_score(y, yhat)
+        mse = metrics.mean_squared_error(y, yhat)
+        mae = metrics.mean_absolute_error(y, yhat)
+        
+        out_str += f'\tR^2: {r2:.3f} | MSE: {mse:.3f} | MAE: {mae:.3f}\n'
+        print(out_str)
+        if is_main_process():
+            f = open(os.path.join(model_dir, f'echonet-pediatric_summary.txt'), 'w')
+            f.write(out_str)
+            f.close()
+
+        if is_main_process():
+            # Performance evaluation scatter plot
+            fig, ax = plt.subplots(1, 1, figsize=(6, 6))
+            ax.scatter(yhat, y)
+            ax.set_title(f'R^2 = {r2:.3f} | MSE = {mse:.3f} | MAE: {mae:.3f}', fontsize=14)
+            ax.set_xlabel(f'Predicted {task.task_name}', fontsize=13)
+            ax.set_ylabel(f'True {task.task_name}', fontsize=13)
+            fig.savefig(os.path.join(model_dir, f'echonet-pediatric_{task.task_name}_preds.png'), dpi=300, bbox_inches='tight')
+            fig.clear()
+            plt.close(fig)
+
+        if is_main_process():
+            # Save video-level and study-level predictions for task
+            study_pred_df.to_csv(os.path.join(model_dir, f'echonet-pediatric_{task.task_name}_preds.csv'), index=False)
+
+if __name__ == '__main__':
+    init_distributed()
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--data_dir', type=str, default='/mnt/nfs_echo_yale/echonetpediatric/pediatric_echo_avi/pediatric_echo_avi')
+    parser.add_argument('--model_dir_path', type=str, default='')
+    parser.add_argument('--output_dir', type=str, required=True)
+    
+    parser.add_argument('--model_name', type=str, default='3dresnet18', choices=['3dresnet18', 'frame_transformer'])
+    parser.add_argument('--arch', type=str, default='', choices=['', 'resnet18', 'resnet50', 'convnext_tiny', 'convnext_small', 'convnextv2_tiny.fcmae_ft_in22k_in1k', 'convnextv2_tiny.fcmae', 'transxnet_t', 'swin_v2_s', 'convnext_base.fb_in22k_ft_in1k_384', 'convnext_base.fb_in22k_ft_in1k'])
+    parser.add_argument('--rand_init', action='store_true', default=False)
+    parser.add_argument('--fc_dropout', type=float, default=0.)
+
+    parser.add_argument('--n_layers', type=int, default=4)
+    parser.add_argument('--n_heads', type=int, default=8)
+    parser.add_argument('--pooling', type=str, default='mean', choices=['', 'mean', 'mean-max'])
+    parser.add_argument('--transformer_dropout', type=float, default=0.)
+
+    parser.add_argument('--clip_len', type=int, default=16)
+    parser.add_argument('--num_clips', type=int, default=4)
+    parser.add_argument('--sampling_rate', type=int, default=1)
+    parser.add_argument('--normalization', type=str, default='', choices=['', 'imagenet', 'kinetics'])
+    parser.add_argument('--augment', action='store_true', default=False)
+
+    parser.add_argument('--max_epochs', type=int, default=30)
+    parser.add_argument('--patience', type=int, default=10)
+    parser.add_argument('--batch_size', type=int, default=16)
+    parser.add_argument('--use_class_weights', action='store_true', default=False)
+    parser.add_argument('--adamw', action='store_true', default=False)
+    parser.add_argument('--lr', type=float, default=1e-4)
+    parser.add_argument('--wd', type=float, default=0.)
+    parser.add_argument('--cos_anneal', action='store_true', default=False)
+    parser.add_argument('--T_0', type=int, default=5)
+    parser.add_argument('--eta_min', type=float, default=1e-6)
+    parser.add_argument('--reduce_lr', action='store_true', default=False)
+
+    parser.add_argument('--seed', type=int, default=0)
+    parser.add_argument('--amp', action='store_true', default=False)
+    parser.add_argument('--resume', action='store_true', default=False)
+
+    args = parser.parse_args()
+
+    print(args)
+
+    main(args)
